@@ -14,8 +14,8 @@
     /*Fuentes*/
     @font-face {
         font-family: Urbanist;
-        src: url('assets/fuentes/Urbanist-VariableFont_wght.ttf') format('ttf'),
-             url('assets/fuentes/Urbanist-Italic-VariableFont_wght.ttf') format('ttf');
+        src: url('../public/assets/fuentes/Urbanist-VariableFont_wght.ttf') format('ttf'),
+             url('../public/assets/fuentes/Urbanist-Italic-VariableFont_wght.ttf') format('ttf');
     }
     body {
         font-family: Urbanist, sans-serif;

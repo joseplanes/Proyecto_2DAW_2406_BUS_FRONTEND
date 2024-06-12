@@ -1,6 +1,5 @@
 import { Component, Input } from '@angular/core';
 import * as L from 'leaflet';
-import 'leaflet/dist/leaflet.css';
 
 const iconRetinaUrl = '../../../assets/imagenes/leaflet/marker-icon-2x.png';
 const iconUrl = '../../../assets/imagenes/leaflet/marker-icon.png';
