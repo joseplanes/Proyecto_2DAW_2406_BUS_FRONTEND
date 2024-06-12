@@ -24,10 +24,16 @@
               {
                 "glob": "**/*",
                 "input": "public"
+              },
+              {
+                "glob": "**/*",
+                "input": "node_modules/leaflet/dist/images",
+                "output": "public"
               }
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.css",
+              "leaflet/dist/leaflet.css"
             ],
             "scripts": []
           },
@@ -82,10 +88,16 @@
               {
                 "glob": "**/*",
                 "input": "public"
+              },
+              {
+                "glob": "**/*",
+                "input": "node_modules/leaflet/dist/images",
+                "output": "public"
               }
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.css",
+              "leaflet/dist/leaflet.css"
             ],
             "scripts": []
           }

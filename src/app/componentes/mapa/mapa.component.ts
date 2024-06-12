@@ -2,6 +2,21 @@ import { Component, Input } from '@angular/core';
 import * as L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
 
+const iconRetinaUrl = '../../../assets/imagenes/leaflet/marker-icon-2x.png';
+const iconUrl = '../../../assets/imagenes/leaflet/marker-icon.png';
+const shadowUrl = '../../../assets/imagenes/leaflet/marker-shadow.png';
+const iconDefault = L.icon({
+  iconRetinaUrl,
+  iconUrl,
+  shadowUrl,
+  iconSize: [25, 41],
+  iconAnchor: [12, 41],
+  popupAnchor: [1, -34],
+  tooltipAnchor: [16, -28],
+  shadowSize: [41, 41],
+});
+L.Marker.prototype.options.icon = iconDefault;
+
 @Component({
   selector: 'app-mapa',
   standalone: true,
