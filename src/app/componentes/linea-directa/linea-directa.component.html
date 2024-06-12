@@ -1,0 +1,18 @@
+<section class="card linea-directa">
+    <header class="header-linea">
+        <h2 class="linea">{{linea.linea}} {{linea.sublinea}}</h2>
+        <p class="empresa">{{linea.empresa}}</p>
+        <button [routerLink]="['/detalle-linea', linea.idLinea]" class="boton-secundario">Horarios</button>
+    </header>
+    <div class="paradas">
+        <div class="parada-origen">
+            <p class="hora">{{linea.horarioOrigen}}</p>
+            <p class="parada">{{linea.paradaOrigen}}</p>
+        </div>
+        <div class="cont-flecha"> <span class="arrow"></span> </div>
+        <div class="parada-destino">
+            <p class="hora">{{linea.horarioDestino}}</p>
+            <p class="parada">{{linea.paradaDestino}}</p>
+        </div>
+    </div>
+</section>

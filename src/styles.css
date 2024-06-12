@@ -1,1 +1,109 @@
 /* You can add global styles to this file, and also import other style files */
+
+:root{
+    /*Paleta de colores*/
+    --amarillo: #FFD166;
+    --verde: #06D6A0;
+    --azul-claro: #117286;
+    --azul-oscuro: #073B4C;
+    --blanco: #FFF;
+    --negro: #000;
+    --gris: #EEE;
+
+
+    /*Fuentes*/
+    @font-face {
+        font-family: Urbanist;
+        src: url('assets/fuentes/Urbanist-VariableFont_wght.ttf') format('ttf'),
+             url('assets/fuentes/Urbanist-Italic-VariableFont_wght.ttf') format('ttf');
+    }
+    body {
+        font-family: Urbanist, sans-serif;
+        background-color: var(--gris);
+        color: var(--azul-oscuro);
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+    }
+    app-root{
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+    }
+
+    /*Reseteo CSS*/
+    *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    .boton{
+        height: 48px;
+        font-weight:600;
+        font-family: Urbanist;
+        font-size: 16px;
+        color: var(--azul-oscuro);
+        background-color: var(--amarillo);
+        border: 0;
+        border-radius: 10px;
+        transition: background-color 0.3s;
+    }
+    .boton:hover{
+        cursor:pointer;
+        background-color: #06D6A0;
+        transition: background-color 0.3s;
+    }
+    .boton-secundario{
+        background-color: var(--blanco);
+        color: var(--azul-oscuro);
+        border: 2px solid var(--amarillo);
+        font-weight:600;
+        border-radius: 10px;
+        font-family: Urbanist;
+        font-size: 16px;
+        cursor: pointer;
+        transition: border 0.3s;
+    }
+    .boton-secundario:hover{
+        border: 2px solid var(--verde);
+        transition: border 0.3s;
+    }
+    .boton-terciario{
+        background-color: var(--blanco);
+        border: 0;
+        color: var(--azul-oscuro);
+        font-weight:600;
+        font-family: Urbanist;
+    }
+    .boton-terciario:hover{
+        cursor:pointer;
+        text-decoration: underline;
+    }
+    input, select{
+        box-sizing: border-box;
+        background-color: var(--gris);
+        border: 0;
+        border-radius: 10px;
+        height: 48px;
+        padding: 8px;
+        font-family: Urbanist;
+        font-size: 16px;
+        color: var(--azul-oscuro);
+    }
+    input:focus, select:focus{
+        outline: none;
+    }
+    main{
+        background-color: var(--gris);
+        color: var(--azul-oscuro);
+    }
+    .card{
+        background-color: var(--blanco);
+        border-radius: 10px;
+        box-shadow: 4px 4px 4px rgba(207, 179, 179, 0.25);
+        padding: 20px;
+        margin: 0 20px 20px 20px;
+    }
+}
+

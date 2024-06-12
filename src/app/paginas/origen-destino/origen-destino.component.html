@@ -1,0 +1,70 @@
+<main class="main origen-destino">
+    <app-buscador/>
+
+
+@if(getBusqueda()){
+    <section class="resultados">
+    <h2>Líneas directas 
+        @if(getLineasDirectas().length && getParadaOrigen() != undefined && getParadaDestino() != undefined){
+            ({{getFecha()}})
+        }
+    </h2>
+    @if (getLineasDirectas().length && getParadaOrigen() != undefined && getParadaDestino() != undefined) {
+        @for (linea of getLineasDirectas(); track linea.idLinea) {
+            <app-linea-directa [linea]="linea"/>
+        }
+    }
+    @else {
+        <h3>No se han encontrado líneas directas 🙁​ </h3>
+    }
+    <h2>Combinaciones 
+        @if(getCombinaciones().length && getParadaOrigen() != undefined && getParadaDestino() != undefined){
+            ({{getFecha()}})
+        }
+    </h2>
+    @if (getCombinaciones().length && getParadaOrigen() != undefined && getParadaDestino() != undefined) {
+        @for (combinacion of getCombinaciones(); track combinacion.idCombinacion) {
+            <app-combinacion [combinacion]="combinacion"/>
+        }
+    }
+    @else {
+        <h3>No se han encontrado combinaciones 🙁​ </h3>
+    }
+</section> 
+} 
+
+
+
+
+ @else {
+    <section class="pagina-inicio">
+        <section class="eslogan">
+            <!-- <img src="../../../assets/imagenes/logo-solo.png" alt=""> -->
+            <h2>Todo lo que <br> necesitas saber <br> sobre los autobuses <br> de Murcia, en Bus&Co.</h2>
+        </section>
+        <aside class="acciones">
+            <div class="cont-acciones">
+                <div class="cont informacion">
+                    <span class="icono"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" data-icon="SvgInfo" aria-hidden="true"><path d="M12 3a9 9 0 11-6.364 2.636A8.972 8.972 0 0112 3zm-1.8 8h1.6v5.3h2m-2-8.51v.01"></path></svg></span>
+                    <h3>Consulta toda la información de tus líneas favoritas.</h3>
+                </div>
+                <div class="cont busqueda">
+                    <span class="icono"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" data-icon="SvgMapPin" aria-hidden="true"><path d="M17.116 13.391h0L12 21l-5.258-7.8q-.1-.135-.186-.276l-.027-.04h0a6.459 6.459 0 1110.585.505zM12 7.175a2.3 2.3 0 102.3 2.3 2.3 2.3 0 00-2.3-2.3z"></path></svg></span>
+                    <h3>Encuentra tu viaje con la búsqueda por origen y destino.</h3>
+                </div>
+                <div class="cont noticias">
+                    <span class="icono"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" data-icon="SvgBookOpen" aria-hidden="true"><path d="M12 17.95V7.65m0 0a6.307 6.307 0 00-2.075-1.263A7.251 7.251 0 007.4 5.95a7.064 7.064 0 00-2.425.425A6.008 6.008 0 003 7.55v10.4a6.008 6.008 0 011.975-1.175A7.064 7.064 0 017.4 16.35a6.978 6.978 0 012.525.475A7.457 7.457 0 0112 18.05m0-10.4a6.307 6.307 0 012.075-1.263A7.251 7.251 0 0116.6 5.95a7.064 7.064 0 012.425.425A6.008 6.008 0 0121 7.55v10.4a6.008 6.008 0 00-1.975-1.175 7.064 7.064 0 00-2.425-.425 6.978 6.978 0 00-2.525.475A7.457 7.457 0 0012 18.05"></path></svg></span>
+                    <h3>Ponte al día con las últimas noticas sobre transporte público.</h3>
+                </div>
+                <div class="cont incidencias">
+                    <span class="icono"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" data-icon="SvgAlertTriangle" aria-hidden="true"><path d="M10.206 4.625l-3.5 6.4-3.5 6.4a2.04 2.04 0 00.038 1.987 2 2 0 001.762 1.013h14a2.007 2.007 0 001.725-.975 2.075 2.075 0 00.075-2.025l-3.5-6.4-3.5-6.4a2.068 2.068 0 00-3.6 0zM12.006 8.825v5.2M12.006 16.99v-.065h0"></path></svg></span>
+                    <h3>Consulta las incidencias que afectan a cada línea.</h3>
+                </div>
+            </div>
+        </aside>
+    </section>
+  
+    
+}
+
+</main>

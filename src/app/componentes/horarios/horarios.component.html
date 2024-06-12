@@ -1,0 +1,23 @@
+<section class="card seccion-horarios">
+    @if(this.horarios){
+        <header class="cabecera"><h3>Parada: {{horarios.nombreParada}}</h3><a (click)="ocultarHorarios()">Volver</a></header>
+        <div class="tipo">
+            <p>Horarios ({{tipo.value}}):</p>
+            <select #tipo (change)="tipoSeleccionado = tipo.value" name="tipo" id="">
+                <option value="Laboral">Laborables</option>
+                <option value="Sabado">Sábados</option>
+                <option value="Festivo">Festivos</option>
+            </select>
+        </div>
+        <section class="horarios">
+            @for (horario of horarios.horario; track horario.hora) {
+                @if(horario.tipo == this.tipoSeleccionado){
+                    <p>{{horario.hora}}</p>
+                }
+                
+            }
+        </section>
+    }
+   
+    <app-mapa [id]="'mapa2'" [paradas]="this.paradas" [recorrido]="this.recorrido" class="mapa2"/>
+</section>

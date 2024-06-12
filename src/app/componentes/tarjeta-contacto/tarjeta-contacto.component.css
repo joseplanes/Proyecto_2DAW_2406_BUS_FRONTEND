@@ -1,0 +1,65 @@
+.card-contacto{
+    background-color: var(--blanco);
+    border-radius: 10px;
+    box-shadow: 4px 4px 4px rgba(207, 179, 179, 0.25);
+    min-height: 200px;
+    margin: 0 80px 20px 80px;
+    padding: 40px;
+    display:grid;
+    grid-template-columns: 1fr 8fr;
+    align-items: center;
+    row-gap: 40px;
+}
+
+img{
+    width: 100px;
+    border-radius: 10px;
+}
+h2{
+    font-size: 32px;
+}
+.contenido{
+    grid-column-start: 2;
+    font-size: 24px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+a{
+    color: var(--azul-claro);
+    text-decoration: none;
+}
+@media(width < 1300px){
+    .card-contacto{
+        column-gap: 20px;
+    }
+    .contenido{
+        grid-template-columns: 1fr;
+    }
+}
+@media(width < 830px){
+    .card-contacto{
+        margin: 0 20px 20px 20px;
+    }
+    .contenido{
+        grid-column: 1 / span 2;
+       
+    }
+}
+@media(width < 520px){
+    .card-contacto{
+        padding: 20px;
+        gap: 10px;
+    }
+    img{
+        width: 60px;
+    }
+    h2{
+        font-size: 24px;
+    }
+    .contenido{
+        
+        font-size: 20px;
+    }
+}
+

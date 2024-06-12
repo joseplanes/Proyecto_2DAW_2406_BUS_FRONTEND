@@ -1,0 +1,57 @@
+<section class="card combinacion">
+    <header class="header-lineas">
+        <div class="linea-origen">
+            <h2 class="linea">{{combinacion.lineaOrigen.linea}} {{combinacion.lineaOrigen.sublinea}}</h2>
+            <p class="empresa">{{combinacion.lineaOrigen.empresa}}</p>
+            <button [routerLink]="['/detalle-linea', combinacion.lineaOrigen.idLinea]" class="boton-secundario">Horarios</button>
+        </div>
+        <div class="linea-destino">
+            <h2 class="linea">{{combinacion.lineaDestino.linea}} {{combinacion.lineaDestino.sublinea}}</h2>
+            <p class="empresa">{{combinacion.lineaDestino.empresa}}</p>
+            <button [routerLink]="['/detalle-linea', combinacion.lineaDestino.idLinea]" class="boton-secundario">Horarios</button>
+        </div>
+        <button (click)="expandirParadas()" class="boton-secundario chevron"><span [ngClass]="{'chevron-up': expandir, 'chevron-down': !expandir}"></span></button>
+        <div class="parada-origen">
+            <p class="hora">{{combinacion.lineaOrigen.horarioOrigen}}</p>
+            <p class="parada">{{combinacion.lineaOrigen.paradaOrigen}}</p>
+        </div>
+        <div class="cont-flecha"> <span class="arrow"></span> </div>
+        <div class="parada-destino">
+            <p class="hora">{{combinacion.lineaDestino.horarioDestino}}</p>
+            <p class="parada par">{{combinacion.lineaDestino.paradaDestino}}</p>
+        </div>
+    </header>
+    <section class="detalle" [ngClass]="{'detalle-expandido': expandir, 'detalle': !expandir}">
+        <span class="divisor"></span>
+        <div class="paradas">
+            <div class="origen">
+                <p class="trayecto">Trayecto 1 ({{combinacion.lineaOrigen.linea}} {{combinacion.lineaOrigen.sublinea}})</p>
+                <div class="trayecto-origen"><span class="linea-trayecto"></span><span class="linea-trayecto-vertical"></span></div>
+                <div class="paradas-origen">
+                    <div class="parada-origen-1">
+                        <p class="hora">{{combinacion.lineaOrigen.horarioOrigen}}</p>
+                        <p class="parada det">{{combinacion.lineaOrigen.paradaOrigen}}</p>
+                    </div>
+                    <div class="parada-destino-1">
+                        <p class="hora dest">{{combinacion.lineaOrigen.horarioDestino}}</p>
+                        <p class="parada det dest">{{combinacion.lineaOrigen.paradaDestino}}</p>
+                    </div>
+                </div>
+            </div>
+            <div class="destino">
+                <p class="trayecto">Trayecto 2 ({{combinacion.lineaDestino.linea}} {{combinacion.lineaDestino.sublinea}})</p>
+                <div class="trayecto-destino"><span class="linea-trayecto"></span><span class="linea-trayecto-vertical"></span></div>
+                <div class="paradas-destino">
+                    <div class="parada-origen-2">
+                        <p class="hora">{{combinacion.lineaDestino.horarioOrigen}}</p>
+                        <p class="parada det">{{combinacion.lineaDestino.paradaOrigen}}</p>
+                    </div>
+                    <div class="parada-destino-2">
+                        <p class="hora dest">{{combinacion.lineaDestino.horarioDestino}}</p>
+                        <p class="parada det dest">{{combinacion.lineaDestino.paradaDestino}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</section>

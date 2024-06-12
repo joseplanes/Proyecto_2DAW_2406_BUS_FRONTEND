@@ -1,0 +1,237 @@
+
+.cabecera{
+    width: 100%;
+    min-height: 300px;
+    background: linear-gradient(270deg, rgba(255, 255, 255, 0.0) 0%, rgba(255, 255, 255, 0.5) 100%),  url('../../../assets/imagenes/Zaen-header.png');
+    background-size: cover;
+    background-position-x: center;
+    background-position-y: 38%;
+    background-repeat: no-repeat;
+    color: var(--azul-oscuro);
+    display: grid;
+    grid-template-columns: repeat(10, 1fr);
+    grid-template-rows: 4fr 3fr;
+}
+header{
+    width: 100%;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 100px;
+    grid-column: 1 / 11;
+    transition: background-color 0.5s;
+}
+h1{
+    grid-column: 2 / 11;
+    font-size: 38px;
+}
+.logo{
+    text-decoration: none;
+    font-size: 52px;
+    font-weight: bold;
+    color: var(--azul-oscuro);
+}
+.logo-full{
+    display: block;
+    width: 200px;
+}
+.logo-mobile{
+    display: none;
+}
+.bars{
+    display: none;
+}
+.nav-bar ul {
+    display: flex;
+    list-style: none;
+    justify-items: flex-end;
+    gap: 40px;
+}
+.nav-bar ul li a{
+    display: block;
+    font-size: 22px;
+    font-weight: 600;
+    text-decoration: none;
+
+    transition: 0.2s;
+    margin: 0 5px;
+    color: var(--azul-oscuro);
+}
+.nav-bar ul li a:hover{
+   color: var(--azul-claro);
+}
+.nav-bar ul li a.active{
+    color: var(--azul-claro);
+ }
+ .cerrar-sesion:hover{
+    cursor: pointer;
+ }
+ .popup{
+    visibility: hidden;
+    width: 0;
+    height: 0;
+ }
+ .popup-activo{
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1002;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+ }
+ .cuadro-confirmacion{
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+    max-width: 100%;
+    width: auto;
+    height: auto;
+    padding: 50px;
+ }
+ .botones-confirmacion{
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+ }
+ .boton{
+    padding: 0 20px;
+ }
+ .boton-secundario{
+    height: 48px;
+    padding: 0 20px;
+ }
+@media(max-width: 1200px){
+    .cabecera{
+        min-height: 200px;
+    }
+    h1{
+        font-size: 32px;
+    }
+    header{
+        padding: 0 30px;
+    }
+    .bars{
+        display: block;
+        cursor: pointer;
+    }
+    .selected1{
+        width: 38px;
+        height: 6px;
+        background-color: var(--azul-oscuro);
+        margin: 6px 0px 6px auto;
+        border-radius: 4px;
+        transition: 0.5s;
+    }
+    .selected2{
+        width: 42px;
+        height: 6px;
+        background-color: var(--azul-oscuro);
+        margin: 6px 0px 6px auto;
+        border-radius: 4px;
+        transition: 0.5s;
+    }
+    .selected3{
+        width: 38px;
+        height: 6px;
+        background-color: var(--azul-oscuro);
+        margin: 6px 0px 6px auto;
+        border-radius: 4px;
+        transition: 0.5s;
+    }
+    .bars .line{
+        width: 36px;
+        height: 5px;
+        background-color: var(--azul-oscuro);
+        margin: 6px 0px 6px auto;
+        border-radius: 4px;
+        transition: 0.5s;
+    }
+    .nav-bar{
+        height: 0px;
+        position: absolute;
+        top: 80px;
+        left: 0;
+        right: 0;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        transition: 0.5s;
+        overflow: hidden;
+        z-index: 1001;
+    }
+    .nav-bar.active{
+        height: 340px;
+        background-color: var(--amarillo);
+    }
+    .nav-bar ul{
+        display: block;
+        width: fit-content;
+        margin: 20px auto 0 auto;
+        text-align: center;
+        transition: 0.5s;
+        opacity: 0;
+    }
+    .nav-bar.active ul{
+        opacity: 1;
+    }
+    .nav-bar ul li a{
+        margin-bottom: 20px;
+    }
+    .menuactivo{
+        background-color: var(--amarillo);
+        transition: 0.5s;
+     }
+}
+@media(max-width: 900px){
+    .cabecera{
+        min-height: 180px;
+    }
+    .logo{
+        font-size: 42px;
+    }
+    h1{
+        font-size: 28px;
+    }
+}
+@media(max-width: 600px){
+    
+    .cabecera{
+        min-height: 150px;
+    }
+    .logo{
+        font-size: 36px;
+    }
+    h1{
+        font-size: 22px;
+    }
+}
+@media(max-width: 400px){
+   .cabecera{
+        background: linear-gradient(270deg, rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0.5) 100%),  url('../../../assets/imagenes/Zaen-header.png');
+        background-size:cover;
+        background-position: center;
+        background-repeat: no-repeat;
+    }
+    h1{
+        font-size: 18px;
+    }
+}
+@media(max-width: 730px){
+    .logo-full{
+        display: none;
+    }
+    .logo-mobile{
+        display: block;
+        width: 50px;
+    }
+}
+@media(max-width: 400px){
+    .cuadro-confirmacion h2{
+        font-size: 18px;
+    }
+}

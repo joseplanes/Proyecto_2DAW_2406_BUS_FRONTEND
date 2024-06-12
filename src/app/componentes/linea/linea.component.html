@@ -1,0 +1,12 @@
+<section class="card linea">
+    <div class="left">
+        <h2>{{linea.linea}}</h2>
+        <p>{{linea.descripcion}}</p>
+    </div>
+    <div class="right">
+        <p class="empresa">{{linea.empresa}}</p>
+        <button [routerLink]="['/detalle-linea', linea.idLinea]" routerLinkActive="router-link-active"  class="boton-secundario">
+            Ver detalles
+        </button>
+    </div>
+</section>

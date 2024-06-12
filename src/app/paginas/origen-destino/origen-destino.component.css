@@ -1,0 +1,111 @@
+.resultados h2{
+    margin: 40px;
+}
+.resultados h3{
+    margin: 40px 60px;
+}
+.pagina-inicio{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 100px;
+    margin: 60px 60px 100px 60px;
+}
+.eslogan{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+.eslogan h2{
+    font-size: 48px;
+    width: 540px;
+}
+
+.acciones{
+    display: grid;
+    grid-template-columns: 1fr;
+    justify-items: flex-start;
+}
+.cont-acciones{
+    width: 540px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: flex-start;
+}
+.cont{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 20px;
+}
+@media (max-width: 1350px){
+    .eslogan h2{
+        font-size: 42px;
+        width: 425px;
+    }
+    .cont-acciones{
+        width: 425px;
+    }
+    .pagina-inicio{
+        gap: 60px;
+    }
+}
+@media (max-width: 1100px){
+    .eslogan h2{
+        font-size: 36px;
+        width: 363px;
+    }
+    .cont-acciones{
+        width: 363px;
+    }
+    .pagina-inicio{
+        gap: 60px;
+    }
+}
+@media (max-width: 900px){
+    br{
+        display: none;
+    }
+    .pagina-inicio{
+        grid-template-columns: 1fr;
+        gap: 60px;
+    }
+    .eslogan{
+        justify-content: center;
+    }
+    .eslogan h2{
+        font-size: 36px;
+        width: auto;
+
+    }
+    .acciones{
+        justify-items: center;
+    }
+    .cont-acciones{
+        width: auto;
+        gap: 20px;
+    }
+    .cont{
+        justify-content: center;
+    }
+}
+@media(max-width: 540px){
+    .eslogan h2{
+        font-size: 30px;
+    }
+}
+@media (max-width: 450px){
+    .pagina-inicio{
+        margin: 30px 30px 60px 30px;
+        gap: 30px;
+    }
+    .eslogan h2{
+        font-size: 24px;
+    }
+    .cont-acciones{
+        gap: 10px;
+    }
+    .cont-acciones h3{
+        font-size: 14px;
+    }  
+}

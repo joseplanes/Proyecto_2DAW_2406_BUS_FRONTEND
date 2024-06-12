@@ -1,0 +1,79 @@
+.seccion-horarios{
+    position: relative;
+    top: -50px;
+}
+.cabecera{
+    background-color: #06d69e52;
+    height: auto;
+    min-height: 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    border-radius: 10px;
+    margin-bottom: 40px;
+}
+.cabecera a{
+    text-decoration: none;
+    color: var(--azul-oscuro);
+    font-size: 20px;
+    font-weight: bold;
+}
+.cabecera a:hover{
+    color: var(--azul-claro);
+    text-decoration: underline;
+    cursor: pointer;
+}
+.tipo{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 40px;
+}
+.tipo p{
+    margin: 0;
+    font-size: 20px;
+    font-weight: bold;
+}
+.horarios{
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    justify-items: center;
+    row-gap: 20px;
+}
+.horarios p{
+    font-size: 28px;
+    font-weight:600;
+}
+@media(max-width: 1200px){
+    .seccion-horarios{
+        top: -25px;
+    }
+
+}
+@media(max-width: 900px){
+    .horarios{
+        grid-template-columns: repeat(5, 1fr);
+    }
+}
+@media(max-width: 600px){
+    .horarios{
+        grid-template-columns: repeat(3, 1fr);
+    }
+  
+        .seccion-horarios{
+            top: -25px;
+        }
+    
+    
+}
+@media(max-width: 400px){
+    .horarios{
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+@media(min-width: 800px){
+    .mapa2{
+     display: none;
+    }
+ }

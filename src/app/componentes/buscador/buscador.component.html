@@ -1,0 +1,28 @@
+<section class="card buscador">
+    <datalist id="paradas">
+        @for (parada of paradas; track parada.id) {
+            <option value="{{parada.nombre}}, {{parada.poblacion}}">
+        }
+    </datalist>
+    <div class="formulario">
+        <div class="cont origen">
+            <label for="origen">Origen *</label>
+            <input (keyup)="setParadaOrigen(origen)" [(ngModel)]="origen" type="text" list="paradas" name="origen" id="origen" placeholder="Introduce el origen">
+        
+        </div>
+        <div class="cont destino">
+            <label for="destino">Destino *</label>
+            <input (keyup)="setParadaDestino(destino)" [(ngModel)]="destino" type="text" list="paradas" name="destino" id="destino" placeholder="Introduce el destino">
+        </div>
+        <div class="cont fecha">
+            <label for="fecha">Fecha</label>
+            <input [(ngModel)]="fecha" type="date" name="fecha" id="fecha">
+        </div>
+        <div class="cont hora">
+            <label for="hora">Hora</label>
+            <input [(ngModel)]="hora" type="time" name="hora" id="hora">
+        </div>
+        <button (click)="buscar(fecha, hora)" class="boton">Buscar</button>
+    </div>
+    <button class="boton-terciario borrar" (click)="borrarFiltros()">Borrar todo</button>
+</section>

@@ -1,0 +1,14 @@
+<section class="card-incidencia">
+    <h2>{{incidencia.nombre}}</h2>
+    <p>{{incidencia.descripcion}}</p>
+    <h3>Afecta a las líneas: 
+        @for (linea of incidencia.lineas; track linea.id) {
+            @if($index + 1 < getLineasLength()){
+                {{linea.nombre}},
+            }
+            @else {
+                {{linea.nombre}}
+            }
+        }
+    </h3>
+</section>

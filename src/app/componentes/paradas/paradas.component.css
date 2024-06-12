@@ -1,0 +1,76 @@
+.paradas{
+    position: relative;
+    top: -50px;
+    height: auto;
+}
+
+table{
+    width: 100%;
+}
+thead{
+    border-radius: 10px;
+    background-color: #06d69e52;
+}
+thead tr{
+    height: 50px;
+   
+    border-radius: 10px;
+}
+thead tr th:nth-child(1){
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+thead tr th:nth-child(4){
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+tbody tr td{
+    padding: 6px;
+    text-align: center;
+}
+a{
+    font-weight: 600;
+    color: var(--azul-oscuro);
+    text-decoration: none;
+}
+a:hover{
+    text-decoration: underline;
+}
+.boton-secundario{
+
+    height: auto;
+    padding: 4px 40px;
+}
+
+@media(min-width: 800px){
+    .mapa2{
+     display: none;
+    }
+ }
+ @media(max-width: 1200px){
+    .paradas{
+        top: -25px;
+    }
+ }
+ @media(max-width: 800px){
+    .enlace{
+        display: none;
+    }
+    thead tr th:nth-child(1){
+        padding: 0 6px;
+    }
+    thead tr th:nth-child(3){
+        border-top-right-radius: 10px;
+        border-bottom-right-radius: 10px;
+        padding: 0 6px;
+    }
+    .boton-secundario{
+        padding: 4px 10px;
+    }
+ }
+ @media(max-width: 600px){
+    .paradas{
+        top: -25px;
+    }
+  
+ }

@@ -1,0 +1,109 @@
+.main{
+    padding-bottom: 10px;
+}
+.cabecera-linea{
+    position: relative;
+    top: -50px;
+    display: flex;
+    justify-content: space-between;
+    gap: 40px;
+}
+.informacion{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 100%;
+
+}
+header{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 20px;
+}
+.linea{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.linea h2{
+    font-size: 32px;
+}
+.sublinea{
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+
+}
+.empresa{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+.empresa p{
+    text-align: center;
+    font-size: 22px;
+    font-weight: 500;
+}
+.empresa img{
+    max-width: 100px;
+}
+.direccion{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    
+}
+.direccion-cambio{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 20px;
+}
+.direccion-cambio button{
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+    max-width: 220px;
+}
+.direccion-nombre{
+    font-size: 22px;
+    font-weight: 600;
+
+}
+.mapa1 {
+    width: 100%;
+    max-height: 400px;
+    overflow: hidden; 
+    border-radius: 10px;
+}
+.direccion-error{
+    display: none;
+    font-size: 16px;
+}
+.active{
+    display: block;
+}
+@media(max-width: 800px){
+   .mapa1{
+    display: none;
+   }
+}
+
+@media(max-width: 1200px){
+    .cabecera-linea{
+        top: -25px;
+    }
+}
+@media(max-width: 400px){
+    .empresa p{
+        font-size: 18px;
+    }
+    .empresa img{
+        max-width: 80px;
+    }
+}

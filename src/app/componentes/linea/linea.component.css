@@ -1,0 +1,33 @@
+.linea{
+    display: flex;
+    justify-content: space-between;
+    min-height: 120px;
+    height: auto;
+}
+.left{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.right{
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+.boton-secundario{
+    font-size: 16px;
+    padding: 10px 20px;
+}
+@media (max-width: 700px){
+    .empresa{
+        display: none;
+    }
+    .right{
+        align-items: flex-start;
+    }
+    .boton-secundario{
+        padding: 5px 10px;
+        font-size: 12px;
+        width: 100px;
+    }
+}

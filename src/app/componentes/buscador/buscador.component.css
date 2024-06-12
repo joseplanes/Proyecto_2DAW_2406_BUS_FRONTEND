@@ -1,0 +1,79 @@
+.buscador{
+    width: 70vw;
+    margin: auto;
+    display: grid;
+    grid-template-columns: 1fr;
+    height: auto;
+    position: relative;
+    top: -50px; 
+    gap: 20px;
+}
+input{
+    width: 100%;
+}
+.formulario{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+.borrar{
+    justify-self: flex-start;
+    align-self: flex-end;
+}
+.borrar:hover{
+    cursor: pointer;
+    text-decoration: underline;
+}
+.boton{
+    font-size: 24px;
+    padding: 0 30px;
+}
+.cont{
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+/*media queries buscador*/
+@media(min-width: 1600px){
+    .buscador{
+        width: 60vw;
+    }
+}
+@media(max-width: 1250px){
+    .buscador{
+        width: 80vw;
+    }
+}
+@media(max-width: 1100px){
+    .buscador{
+        width: 90vw;
+    }
+}
+@media(max-width: 980px){
+    .buscador{
+        width: calc(100% - 40px);
+    }
+}
+@media(max-width: 900px){
+    .formulario{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+    }
+    .boton{
+        grid-column: span 2;
+    }
+}
+@media(max-width: 540px){
+    .formulario{
+        grid-template-columns: 1fr;
+    }
+    .boton{
+        grid-column: span 1;
+    }
+}
+@media(max-width: 1200px){
+    .buscador{
+        top: -25px;
+    }
+}
