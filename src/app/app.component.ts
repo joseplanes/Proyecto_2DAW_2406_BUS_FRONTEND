@@ -4,6 +4,7 @@ import { HeaderComponent } from './componentes/header/header.component';
 import { FooterComponent } from './componentes/footer/footer.component';
 import { CommonModule } from '@angular/common';
 
+
 @Component({
   selector: 'app-root',
   standalone: true,
