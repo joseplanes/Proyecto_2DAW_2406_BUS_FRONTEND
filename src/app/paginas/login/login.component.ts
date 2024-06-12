@@ -26,7 +26,9 @@ export class LoginComponent {
   login(){
       this.autenticacionService.login({username: this.username, password: this.password}).subscribe(
         data => {
-          
+        },
+        error => {
+          this.credencialesIncorrectas = true;
         }
       );
   }

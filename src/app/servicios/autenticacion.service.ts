@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable, inject } from '@angular/core';
+import { Router } from '@angular/router';
 import { BehaviorSubject, Observable, tap } from 'rxjs';
 
 @Injectable({
@@ -11,6 +12,7 @@ export class AutenticacionService {
   private loggedUser?: string;
   private isAuthenticatedSubject = new BehaviorSubject<boolean>(false);
   private http = inject(HttpClient);
+  private router = inject(Router);
 
   constructor() {}
 
@@ -20,6 +22,7 @@ export class AutenticacionService {
       .pipe(
         tap((tokens) => {
           this.doLoginUser(user.username, tokens);
+          this.router.navigate(['/admin-listado']);
         })
       );
   }
@@ -36,7 +39,6 @@ export class AutenticacionService {
   }
   logout() {
     localStorage.removeItem(this.JWT_TOKEN);
-
     this.isAuthenticatedSubject.next(false);
   }
 }

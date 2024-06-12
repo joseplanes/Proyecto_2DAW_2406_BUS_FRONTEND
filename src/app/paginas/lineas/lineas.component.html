@@ -28,7 +28,7 @@
     @if ((lineas | nombrelineas:nombre | empresalineas:empresa | tipolineas:tipo).length === 0) {
       <h2>No se han encontrado líneas 🙁​ </h2>
     }@else {
-      @for (linea of lineas | nombrelineas:nombre | empresalineas:empresa |tipolineas:tipo; track linea.id) {
+      @for (linea of lineas | nombrelineas:nombre | empresalineas:empresa |tipolineas:tipo; track linea.idLinea) {
         <app-linea [linea]="linea"/>
       }
     }

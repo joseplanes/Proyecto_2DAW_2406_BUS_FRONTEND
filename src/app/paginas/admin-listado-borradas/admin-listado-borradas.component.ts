@@ -4,30 +4,27 @@ import { ComunicacionService } from '../../servicios/comunicacion.service';
 import { NombrelineasPipe } from '../../pipes/nombrelineas.pipe';
 import { EmpresalineasPipe } from '../../pipes/empresalineas.pipe';
 import { TipolineasPipe } from '../../pipes/tipolineas.pipe';
-import { AdminLineaComponent } from '../../componentes/admin-linea/admin-linea.component';
 import { FormsModule } from '@angular/forms';
+import { AdminLineaBorradaComponent } from '../../componentes/admin-linea-borrada/admin-linea-borrada.component';
 
 @Component({
-  selector: 'app-admin-listado',
+  selector: 'app-admin-listado-borradas',
   standalone: true,
-  imports: [NombrelineasPipe, EmpresalineasPipe, TipolineasPipe, AdminLineaComponent, FormsModule],
-  templateUrl: './admin-listado.component.html',
-  styleUrl: './admin-listado.component.css',
+  imports: [NombrelineasPipe, EmpresalineasPipe, TipolineasPipe, FormsModule, AdminLineaBorradaComponent],
+  templateUrl: './admin-listado-borradas.component.html',
+  styleUrl: './admin-listado-borradas.component.css'
 })
-export class AdminListadoComponent {
-  titulo = 'Líneas - Administración';
-  lineas: any;
+export class AdminListadoBorradasComponent {
+  titulo = 'Líneas inactivas - Administración';
+  lineasBorradas: any;
   nombre:string = '';
   empresa:string = 'Todas';
   tipo:string = 'Todas';
-  constructor(
-    private adminService: AdminService,
-    private comunicacionService: ComunicacionService
-  ) {
-    this.adminService.setLineas().subscribe((data) => {
-      this.lineas = data;
+  constructor(private adminService: AdminService, private comunicacionService: ComunicacionService) {
+    this.adminService.setLineasEliminadas().subscribe((data) => {
+      this.lineasBorradas = data;
     });
-  }
+   }
   ngOnInit() {
     this.comunicacionService.setTitulo(this.titulo);
   }

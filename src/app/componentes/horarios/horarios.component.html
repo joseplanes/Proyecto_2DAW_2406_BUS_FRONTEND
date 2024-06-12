@@ -10,7 +10,7 @@
             </select>
         </div>
         <section class="horarios">
-            @for (horario of horarios.horario; track horario.hora) {
+            @for (horario of horarios.horario; track horario.id) {
                 @if(horario.tipo == this.tipoSeleccionado){
                     <p>{{horario.hora}}</p>
                 }

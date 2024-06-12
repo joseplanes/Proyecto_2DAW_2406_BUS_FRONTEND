@@ -11,6 +11,8 @@ import { AdminListadoComponent } from './paginas/admin-listado/admin-listado.com
 import { loginGuard } from './guards/login.guard';
 import { AdminCrearComponent } from './paginas/admin-crear/admin-crear.component';
 import { Error404Component } from './paginas/error404/error404.component';
+import { AdminEditarComponent } from './paginas/admin-editar/admin-editar.component';
+import { AdminListadoBorradasComponent } from './paginas/admin-listado-borradas/admin-listado-borradas.component';
 
 export const routes: Routes = [
     {
@@ -66,10 +68,22 @@ export const routes: Routes = [
         title: 'Líneas - Administración - Bus&Co',
     },
     {
+        path: 'admin-listado-inactivas',
+        component: AdminListadoBorradasComponent,
+        canActivate: [loginGuard],
+        title: 'Líneas inactivas- Administración - Bus&Co',
+    },
+    {
         path: 'admin-crear',
         component: AdminCrearComponent,
         canActivate: [loginGuard],
         title: 'Crear línea - Administración - Bus&Co',
+    },
+    {
+        path: 'admin-editar/:id',
+        component: AdminEditarComponent,
+        canActivate: [loginGuard],
+        title: 'Editar línea - Administración - Bus&Co',
     },
     {
         path: '**',

@@ -1,4 +1,4 @@
-.linea-admin{
+.linea-borrada-admin{
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -16,27 +16,11 @@
 .linea h3{
     font-size: 24px;
 }
-.botones{
-    display: flex;
-    gap: 10px;
-
+.boton{
+    padding: 10px 20px;
 }
 .boton-secundario{
     padding: 10px 20px;
-}
-.editar:hover{
-    background-color: #06D6A04D;
-    border-color: var(--verde);
-    transition: all 0.5s;
-}
-.eliminar{
-    border-color: var(--rojo);
-    transition: all 0.5s;
-}
-.eliminar:hover{
-    background-color: rgb(246, 96, 96, 0.3);
-    border-color: var(--rojo);
-    transition: all 0.5s;
 }
 .popup{
     visibility: hidden;
@@ -72,22 +56,10 @@
  .boton{
     padding: 0 20px;
  }
-@media(max-width: 600px){
-    .botones{
-        flex-direction: column;
-    }
-}
-@media(max-width: 450px){
-    .boton-secundario{
-        padding: 10px 10px;
-    }
-}
-@media(max-width: 400px){
-    .linea-admin{
+
+@media(max-width: 500px){
+    .linea-borrada-admin{
         align-items: flex-start;
         flex-direction: column;
-    }
-    .botones{
-        flex-direction: row;
     }
 }

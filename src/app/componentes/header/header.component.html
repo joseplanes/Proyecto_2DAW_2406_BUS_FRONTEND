@@ -16,7 +16,7 @@
                                        routerLinkActive="active" href="#">Nueva línea</a></li>
                          <li><a (click)=" this.activarMenu = false" routerLink="/admin-listado" routerLinkActive="active"
                                        href="#">Listado de líneas</a></li>
-                         <li><a (click)=" this.activarMenu = false" routerLink="/admin-eliminadas" routerLinkActive="active"
+                         <li><a (click)=" this.activarMenu = false" routerLink="/admin-listado-inactivas" routerLinkActive="active"
                                        href="#">Líneas inactivas</a></li>
                          <li><a (click)=" alternarPopup()"
                                         class="cerrar-sesion">Cerrar sesión</a></li>
@@ -41,7 +41,7 @@
 </section>
 <section id="popup" [class.popup]="!popup" [class.popup-activo]="popup">
     <section class="card cuadro-confirmacion">
-           <h2>¿Seguro de que quiere cerrar la sesión?</h2>
+           <h2>¿Seguro que quiere cerrar la sesión?</h2>
            <div class="botones-confirmacion">
                   <button class="boton" routerLink="/login" (click)="logOut(); popup = false">Cerrar sesión</button>
                   <button class="boton-secundario" (click)="popup = false">Cancelar</button>

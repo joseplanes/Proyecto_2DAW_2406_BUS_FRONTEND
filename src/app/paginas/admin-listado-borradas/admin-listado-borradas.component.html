@@ -1,4 +1,4 @@
-<main class="main admin-listado">
+<main class="main admin-listado-borradas">
     <section class="card cont-filtros">
         <h3>Filtros</h3>
         <div class="cont nombre">
@@ -24,11 +24,11 @@
         </div>
         <button class="boton-terciario" (click)="borrarFiltros()">Borrar filtros</button>
 </section>
-@if ((lineas | nombrelineas:nombre | empresalineas:empresa | tipolineas:tipo).length === 0) {
-    <h2>No se han encontrado líneas activas 🙁​ </h2>
+@if ((lineasBorradas | nombrelineas:nombre | empresalineas:empresa | tipolineas:tipo).length === 0) {
+    <h2>No se han encontrado líneas inactivas 🙁​ </h2>
   }@else {
-  @for (linea of lineas | nombrelineas:nombre | empresalineas:empresa | tipolineas:tipo; track linea.id) {
-    <app-admin-linea [linea]="linea"/>
+  @for (linea of lineasBorradas | nombrelineas:nombre | empresalineas:empresa | tipolineas:tipo; track linea.id) {
+    <app-admin-linea-borrada [lineaBorrada]="linea"/>
   }
 }
 </main>

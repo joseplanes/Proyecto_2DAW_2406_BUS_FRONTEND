@@ -1,1 +1,23 @@
-<p>admin-linea works!</p>
+<section class="card linea-admin">
+    <section class="info">
+        <div class="linea">
+            <h3>{{linea.linea}}</h3>
+            <p>{{linea.empresa}}</p>
+        </div>
+        <p>{{linea.descripion}}</p>
+    </section>
+    <section class="botones">
+
+        <button class="boton-secundario editar" [routerLink]="['/admin-editar', linea.id]" routerLinkActive="router-link-active" >Editar</button>
+        <button (click)="alternarPopup()" class="boton-secundario eliminar">Eliminar</button>
+    </section>
+</section>
+<section id="popup" [class.popup]="!popup" [class.popup-activo]="popup">
+    <section class="card cuadro-confirmacion">
+           <h2>¿Seguro que quiere eliminar la línea {{linea.linea}}?</h2>
+           <div class="botones-confirmacion">
+                  <button class="boton-secundario eliminar" (click)="borrarLinea(); popup = false">Eliminar</button>
+                  <button class="boton-secundario" (click)="popup = false">Cancelar</button>
+           </div>
+    </section>
+</section>
