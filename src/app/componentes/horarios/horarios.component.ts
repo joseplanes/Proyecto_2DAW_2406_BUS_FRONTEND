@@ -20,7 +20,7 @@ export class HorariosComponent implements OnInit{
   constructor(private servicioComunicacion: ComunicacionService, private servicioLineaDetalle: LineaDetalleService) { }
   ngOnInit(): void {
     this.servicioLineaDetalle.setHorarios(this.servicioLineaDetalle.getIdSublinea(), this.servicioLineaDetalle.getParada().idParada, this.servicioLineaDetalle.getDireccion()).subscribe((json) => {
-      this.horarios = json;
+      this.horarios = json[0];
     });
   }
 

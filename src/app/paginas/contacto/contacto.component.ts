@@ -16,7 +16,7 @@ export class ContactoComponent implements OnInit{
   constructor(private comunicacionService: ComunicacionService, protected contactoService: ContactoService){
     if(localStorage.getItem('empresas') == null){
       this.contactoService.setEmpresas().subscribe((json:any) => {
-        this.empresas = json
+        this.empresas = json[0]
         localStorage.setItem('empresas', JSON.stringify(this.empresas));
       });
     }  

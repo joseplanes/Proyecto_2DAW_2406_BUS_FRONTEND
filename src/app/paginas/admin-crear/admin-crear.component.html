@@ -1,1 +1,44 @@
-<p>admin-crear works!</p>
+<main class="main admin-crear">
+    <form class="nueva-linea">
+        <fieldset class="nombre">
+            <label for="nombre">Nombre *</label>
+            <input [(ngModel)]="nombre" type="text" name="nombre" id="nombre">
+            <p class="error-nombre">{{errorNombre}}</p>
+        </fieldset>
+        <fieldset class="descripcion">
+            <label for="descripcion">Descripción *</label>
+            <input [(ngModel)]="descripcion" type="text" name="descripcion" id="descripcion">
+            <p class="error-descripcion">{{errorDescripcion}}</p>
+        </fieldset>
+        <fieldset class="empresa">
+            <label for="empresa">Empresa *</label>
+            <select [(ngModel)]="empresa" name="empresa" id="empresa">
+                @for (empresa of empresas; track empresa.id) {
+                    <option value="{{empresa.id}}">{{empresa.empresa}}</option>
+                }
+            </select>
+        </fieldset>
+        <fieldset class="tipo">
+            <label for="tipo">Tipo *</label>
+            <select [(ngModel)]="tipo" name="tipo" id="empresa">
+                <option value="Urbana">Urbana</option>
+                <option value="Interurbana">Interurbana</option>
+            </select>
+        </fieldset>
+        <fieldset class="sublineas">
+            <p>Sublíneas</p>
+            <ul>
+                <li>
+                    @for (sublinea of sublineas; track $index) {
+                        <p>{{sublinea}}</p>
+                    }
+                </li>
+            </ul>
+            <button (click)="preventSubmit($event); addSublinea()" class="boton-secundario">Añadir sublínea</button>
+            <button (click)="preventSubmit($event); eliminarSublinea()" class="boton-secundario">Eliminar sublínea</button>
+
+        </fieldset>
+        <button (click)="preventSubmit($event); crearLinea()" class="boton">Crear Línea</button>
+    </form>
+    
+</main>

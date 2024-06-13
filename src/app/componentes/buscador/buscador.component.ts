@@ -24,8 +24,7 @@ export class BuscadorComponent {
   ) {
     if (localStorage.getItem('paradas') == null) {
       this.origenDestinoService.setParadas().subscribe((json: any) => {
-        this.paradas = json;
-        this.paradas = this.paradas.paradas;
+        this.paradas = json[0].paradas;
         localStorage.setItem('paradas', JSON.stringify(this.paradas));
       });
     }

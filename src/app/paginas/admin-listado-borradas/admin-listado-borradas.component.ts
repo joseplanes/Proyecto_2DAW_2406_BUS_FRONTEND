@@ -15,14 +15,14 @@ import { AdminLineaBorradaComponent } from '../../componentes/admin-linea-borrad
   styleUrl: './admin-listado-borradas.component.css'
 })
 export class AdminListadoBorradasComponent {
-  titulo = 'Líneas inactivas - Administración';
+  titulo = 'Líneas inactivas - Área privada';
   lineasBorradas: any;
   nombre:string = '';
   empresa:string = 'Todas';
   tipo:string = 'Todas';
   constructor(private adminService: AdminService, private comunicacionService: ComunicacionService) {
     this.adminService.setLineasEliminadas().subscribe((data) => {
-      this.lineasBorradas = data;
+      this.lineasBorradas = data[0];
     });
    }
   ngOnInit() {

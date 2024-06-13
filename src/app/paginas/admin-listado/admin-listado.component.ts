@@ -15,7 +15,7 @@ import { FormsModule } from '@angular/forms';
   styleUrl: './admin-listado.component.css',
 })
 export class AdminListadoComponent {
-  titulo = 'Líneas - Administración';
+  titulo = 'Líneas - Área privada';
   lineas: any;
   nombre:string = '';
   empresa:string = 'Todas';
@@ -25,7 +25,7 @@ export class AdminListadoComponent {
     private comunicacionService: ComunicacionService
   ) {
     this.adminService.setLineas().subscribe((data) => {
-      this.lineas = data;
+      this.lineas = data[0];
     });
   }
   ngOnInit() {

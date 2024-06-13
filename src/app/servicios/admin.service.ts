@@ -1,6 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, catchError } from 'rxjs';
 
 const headers = new HttpHeaders({
   Authorization: 'Bearer ' + localStorage.getItem('token')
@@ -24,6 +24,10 @@ export class AdminService {
     this.lineasEliminadas = this.http.get<any[]>(this.urlBase + 'listadoBorradas')
     return this.lineasEliminadas;
   }
+  crearLinea(linea:any): Observable<any>{
+    const body = { linea }
+    return this.http.post<any>(this.urlBase + 'addlinea', body)
+  }
   borrarLinea(id:number){
     const body = { title: 'Borrar línea' }
     return this.http.put<any>(this.urlBase + 'borrarLinea/' + id, body)
@@ -31,5 +35,8 @@ export class AdminService {
   recuperarLinea(id:number){
     const body = { title: 'Recuperar línea' }
     return this.http.put<any>(this.urlBase + 'recuperarLinea/' + id, body)
+  }
+  setEmpresas(): Observable<any[]>{    
+    return this.http.get<any[]>(this.urlBase + 'listadoEmpresas')
   }
 }

@@ -22,7 +22,7 @@ a{
     transition: all 0.5s;
 }
 a:hover{
-    color: var(--azul-hover);
+    color: var(--azul-claro);
     cursor: pointer;
     transition: all 0.5s;
 }

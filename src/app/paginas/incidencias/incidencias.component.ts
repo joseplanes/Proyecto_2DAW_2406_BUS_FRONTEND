@@ -16,7 +16,7 @@ export class IncidenciasComponent implements OnInit{
   constructor(private comunicacionService: ComunicacionService, private incidenciasService: IncidenciasService){
     if(localStorage.getItem('incidencias') == null){
       this.incidenciasService.setIncidencias().subscribe((json:any) => {
-        this.incidencias = json
+        this.incidencias = json[0]
         localStorage.setItem('incidencias', JSON.stringify(this.incidencias));
       });
       

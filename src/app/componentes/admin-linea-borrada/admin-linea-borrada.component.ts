@@ -13,7 +13,6 @@ export class AdminLineaBorradaComponent {
   @Input() lineaBorrada: any;
   popup: boolean = false;
   constructor(private adminService: AdminService, private router: Router) {
-    
   }
   recuperarLinea() {
     this.adminService.recuperarLinea(this.lineaBorrada.id).subscribe((data) => {

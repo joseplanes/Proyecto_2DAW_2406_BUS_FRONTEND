@@ -23,7 +23,7 @@ export class LineasComponent {
   constructor(private lineasService: LineasService, private comunicacionService: ComunicacionService) {
     if(localStorage.getItem('lineas') == null){
       this.lineasService.getLineas().subscribe((json:any) => {
-        this.lineas = json;
+        this.lineas = json[0];
         localStorage.setItem('lineas', JSON.stringify(this.lineas));
       });
     }
