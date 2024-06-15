@@ -1,41 +1,35 @@
 <main class="main origen-destino">
     <app-buscador/>
-
-
-@if(getBusqueda()){
-    <section class="resultados">
-    <h2>Líneas directas 
-        @if(getLineasDirectas().length && getParadaOrigen() != undefined && getParadaDestino() != undefined){
-            ({{getFecha()}})
-        }
-    </h2>
-    @if (getLineasDirectas().length && getParadaOrigen() != undefined && getParadaDestino() != undefined) {
-        @for (linea of getLineasDirectas(); track linea.idLinea) {
-            <app-linea-directa [linea]="linea"/>
-        }
-    }
-    @else {
-        <h3>No se han encontrado líneas directas 🙁​ </h3>
-    }
-    <h2>Combinaciones 
-        @if(getCombinaciones().length && getParadaOrigen() != undefined && getParadaDestino() != undefined){
-            ({{getFecha()}})
-        }
-    </h2>
-    @if (getCombinaciones().length && getParadaOrigen() != undefined && getParadaDestino() != undefined) {
-        @for (combinacion of getCombinaciones(); track combinacion.idCombinacion) {
-            <app-combinacion [combinacion]="combinacion"/>
-        }
-    }
-    @else {
-        <h3>No se han encontrado combinaciones 🙁​ </h3>
-    }
-</section> 
-} 
-
-
-
-
+    @if(getBusqueda()){
+        <section class="resultados">
+            <h2>Líneas directas 
+                @if(getLineasDirectas().length && getParadaOrigen() != undefined && getParadaDestino() != undefined){
+                    ({{getFecha()}})
+                }
+            </h2>
+            @if (getLineasDirectas().length && getParadaOrigen() != undefined && getParadaDestino() != undefined) {
+                @for (linea of getLineasDirectas(); track linea.idLinea) {
+                    <app-linea-directa [linea]="linea"/>
+                }
+            }
+            @else {
+                <h3>No se han encontrado líneas directas 🙁​ </h3>
+            }
+            <h2>Combinaciones 
+                @if(getCombinaciones().length && getParadaOrigen() != undefined && getParadaDestino() != undefined){
+                    ({{getFecha()}})
+                }
+            </h2>
+            @if (getCombinaciones().length && getParadaOrigen() != undefined && getParadaDestino() != undefined) {
+                @for (combinacion of getCombinaciones(); track combinacion.idCombinacion) {
+                    <app-combinacion [combinacion]="combinacion"/>
+                }
+            }
+            @else {
+                <h3>No se han encontrado combinaciones 🙁​ </h3>
+            }
+        </section>
+    } 
  @else {
     <section class="pagina-inicio">
         <section class="eslogan">
@@ -43,7 +37,7 @@
             <h2>Todo lo que <br> necesitas saber <br> sobre los autobuses <br> de Murcia, en Bus&Co.</h2>
         </section>
         <aside class="acciones">
-            <div class="cont-acciones">
+            <article class="cont-acciones">
                 <div class="cont informacion">
                     <span class="icono"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" data-icon="SvgInfo" aria-hidden="true"><path d="M12 3a9 9 0 11-6.364 2.636A8.972 8.972 0 0112 3zm-1.8 8h1.6v5.3h2m-2-8.51v.01"></path></svg></span>
                     <h3>Consulta toda la información de tus líneas favoritas.</h3>
@@ -60,7 +54,7 @@
                     <span class="icono"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" data-icon="SvgAlertTriangle" aria-hidden="true"><path d="M10.206 4.625l-3.5 6.4-3.5 6.4a2.04 2.04 0 00.038 1.987 2 2 0 001.762 1.013h14a2.007 2.007 0 001.725-.975 2.075 2.075 0 00.075-2.025l-3.5-6.4-3.5-6.4a2.068 2.068 0 00-3.6 0zM12.006 8.825v5.2M12.006 16.99v-.065h0"></path></svg></span>
                     <h3>Consulta las incidencias que afectan a cada línea.</h3>
                 </div>
-            </div>
+            </article>
         </aside>
     </section>
   

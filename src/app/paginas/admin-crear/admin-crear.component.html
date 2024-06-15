@@ -39,11 +39,11 @@
     </form>
 </main>
 <section id="popup" [class.popup]="!popup" [class.popup-activo]="popup">
-    <section class="card cuadro-confirmacion">
+    <dialog class="card cuadro-confirmacion">
            <h2>¿Seguro que quiere crear la línea?</h2>
            <div class="botones-confirmacion">
                   <button class="boton" (click)="crearLinea(); popup = false">Crear</button>
                   <button class="boton-secundario" (click)="popup = false">Cancelar</button>
            </div>
-    </section>
+    </dialog>
 </section>

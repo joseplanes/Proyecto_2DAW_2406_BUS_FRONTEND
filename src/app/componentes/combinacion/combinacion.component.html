@@ -23,10 +23,10 @@
     </header>
     <section class="detalle" [ngClass]="{'detalle-expandido': expandir, 'detalle': !expandir}">
         <span class="divisor"></span>
-        <div class="paradas">
-            <div class="origen">
+        <article class="paradas">
+            <section class="origen">
                 <p class="trayecto">Trayecto 1 ({{combinacion.lineaOrigen.linea}} {{combinacion.lineaOrigen.sublinea}})</p>
-                <div class="trayecto-origen"><span class="linea-trayecto"></span><span class="linea-trayecto-vertical"></span></div>
+                <div class="trayecto-origen"><span alt="linea trayecto origen" class="linea-trayecto"></span><span alt="linea trayecto origen" class="linea-trayecto-vertical"></span></div>
                 <div class="paradas-origen">
                     <div class="parada-origen-1">
                         <p class="hora">{{combinacion.lineaOrigen.horarioOrigen}}</p>
@@ -37,10 +37,10 @@
                         <p class="parada det dest">{{combinacion.lineaOrigen.paradaDestino}}</p>
                     </div>
                 </div>
-            </div>
-            <div class="destino">
+            </section>
+            <section class="destino">
                 <p class="trayecto">Trayecto 2 ({{combinacion.lineaDestino.linea}} {{combinacion.lineaDestino.sublinea}})</p>
-                <div class="trayecto-destino"><span class="linea-trayecto"></span><span class="linea-trayecto-vertical"></span></div>
+                <div class="trayecto-destino"><span alt="linea trayecto destino" class="linea-trayecto"></span><span alt="linea trayecto destino" class="linea-trayecto-vertical"></span></div>
                 <div class="paradas-destino">
                     <div class="parada-origen-2">
                         <p class="hora">{{combinacion.lineaDestino.horarioOrigen}}</p>
@@ -51,7 +51,7 @@
                         <p class="parada det dest">{{combinacion.lineaDestino.paradaDestino}}</p>
                     </div>
                 </div>
-            </div>
-        </div>
+            </section>
+        </article>
     </section>
 </section>

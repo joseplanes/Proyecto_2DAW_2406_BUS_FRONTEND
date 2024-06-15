@@ -1,11 +1,11 @@
 <main class="main admin-listado-borradas">
-    <section class="card cont-filtros">
+    <form class="card cont-filtros">
         <h3>Filtros</h3>
-        <div class="cont nombre">
+        <fieldset class="cont nombre">
             <label for="nombre">Nombre</label>
             <input [(ngModel)]="nombre" type="text" name="nombre" id="" placeholder="Introduce el nombre">
-        </div>
-        <div class="cont empresa">
+        </fieldset>
+        <fieldset class="cont empresa">
             <label for="empresa">Empresa</label>
             <select  [(ngModel)]="empresa" name="empresa" id="">
                 <option value="Todas" selected>Todas</option>
@@ -13,17 +13,17 @@
                 <option value="Transportes de murcia">Transportes de murcia</option>
                 <option value="Movibus">Movibus</option>
             </select>
-        </div>
-        <div class="cont tipo">
+        </fieldset>
+        <fieldset class="cont tipo">
             <label for="tipo">Tipo</label>
             <select [(ngModel)]="tipo" name="tipo" id="">
                 <option value="Todas" selected>Todas</option>
                 <option value="Urbana">Urbanas</option>
                 <option value="Interurbana">Interurbanas</option>
             </select>
-        </div>
+        </fieldset>
         <button class="boton-terciario" (click)="borrarFiltros()">Borrar filtros</button>
-</section>
+</form>
 @if ((lineasBorradas | nombrelineas:nombre | empresalineas:empresa | tipolineas:tipo).length === 0) {
     <h2>No se han encontrado líneas inactivas 🙁​ </h2>
   }@else {

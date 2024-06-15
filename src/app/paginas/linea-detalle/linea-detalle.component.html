@@ -3,7 +3,7 @@
         @if(this.cabeceraLinea){
             <div class="informacion">
                 <header>
-                    <div class="linea">
+                    <section class="linea">
                         <h2>{{cabeceraLinea.nombreLinea}} {{nombreSublinea}}</h2>
                         <div class="sublinea">
                             <label for="sublinea">Sublínea</label>
@@ -13,29 +13,24 @@
                                 }
                             </select>
                         </div>
-                    </div>
-                    <div class="empresa">
+                    </section>
+                    <section class="empresa">
                         <p>{{cabeceraLinea.empresa}}</p>
                         <img src="assets/imagenes/{{cabeceraLinea.empresa}}.png" alt="">
-                    </div>
+                    </section>
                 </header>
-                <div class="direccion">
+                <section class="direccion">
                     <p class="direccion-nombre">{{direccion}}</p>
                     <div class="direccion-cambio">
                         <button (click)="cambiarDireccion()" class="boton">Cambio de dirección <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" data-icon="SvgVerticalArrows" aria-hidden="true"><path d="M11.988 20.989V3.007m.006 17.977l2.781-2.784m-2.781 2.791L9.2 18.213m2.786-15.2l-2.762 2.8m2.762-2.811L14.8 5.767"></path></svg></button>
                         <p class="direccion-error" [class.active]="errorDireccion">Esta sublínea sólo tiene una dirección</p>
                     </div>
-                </div>
+                </section>
             </div>
         }
-        
-            @if (this.paradas) {
-                <app-mapa [id]="'mapa1'" [paradas]="this.paradas" [recorrido]="this.recorrido" class="mapa1"/>
-            }
-            
-            
-        
-        
+        @if (this.paradas) {
+            <app-mapa [id]="'mapa1'" [paradas]="this.paradas" [recorrido]="this.recorrido" class="mapa1"/>
+        }
     </section>
     @if(this.paradas){
         @if(getMostrarHorarios()){
@@ -43,9 +38,6 @@
         }
         @else {
             <app-paradas [paradas]="this.paradas" [recorrido]="this.recorrido" class="paradas"/>
-            
         }
     }
-    
-    
 </main>

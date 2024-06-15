@@ -16,6 +16,9 @@
     justify-items: stretch;
     gap: 50px;
 }
+fieldset{
+    border: 0;
+}
 .campo{
     display: flex;
     flex-direction: column;

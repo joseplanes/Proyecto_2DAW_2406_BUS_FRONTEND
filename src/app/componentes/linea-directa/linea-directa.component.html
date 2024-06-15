@@ -4,15 +4,15 @@
         <p class="empresa">{{linea.empresa}}</p>
         <button [routerLink]="['/detalle-linea', linea.idLinea]" class="boton-secundario">Horarios</button>
     </header>
-    <div class="paradas">
+    <article class="paradas">
         <div class="parada-origen">
             <p class="hora">{{linea.horarioOrigen}}</p>
             <p class="parada">{{linea.paradaOrigen}}</p>
         </div>
-        <div class="cont-flecha"> <span class="arrow"></span> </div>
+        <div class="cont-flecha"> <span alt="flecha dirección" class="arrow"></span> </div>
         <div class="parada-destino">
             <p class="hora">{{linea.horarioDestino}}</p>
             <p class="parada">{{linea.paradaDestino}}</p>
         </div>
-    </div>
+    </article>
 </section>

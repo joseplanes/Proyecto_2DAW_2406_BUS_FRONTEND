@@ -1,50 +1,48 @@
 <section class="cabecera">
-    <header [class.menuactivo]="activarMenu">
-           <a class="logo" routerLink="/origen-destino" routerLinkActive="active" href="#">
-                  <img class="logo-full" src="assets/imagenes/logo-horizontal.png" alt="Logo BusAndCo">
-                  <img class="logo-mobile" src="assets/imagenes/logo-solo.png" alt="Logo BusAndCo">
-           </a>
-           <div (click)="alternarMenu()" class="bars">
-                  <div [class.selected1]="activarMenu" [class.line]="!activarMenu"></div>
-                  <div [class.selected2]="activarMenu" [class.line]="!activarMenu"></div>
-                  <div [class.selected3]="activarMenu" [class.line]="!activarMenu"></div>
-           </div>
-           <nav class="nav-bar" [class.active]="activarMenu">
-                  <ul>
-                         @if(isLogged()){
-                                <li><a (click)=" this.activarMenu = false" routerLink="/admin-crear"
-                                       routerLinkActive="active" href="#">Nueva línea</a></li>
-                         <li><a (click)=" this.activarMenu = false" routerLink="/admin-listado" routerLinkActive="active"
-                                       href="#">Listado de líneas</a></li>
-                         <li><a (click)=" this.activarMenu = false" routerLink="/admin-listado-inactivas" routerLinkActive="active"
-                                       href="#">Líneas inactivas</a></li>
-                         <li><a (click)=" alternarPopup()"
-                                        class="cerrar-sesion">Cerrar sesión</a></li>
-                         }@else{
-                                <li><a (click)=" this.activarMenu = false" routerLink="/origen-destino"
-                                              routerLinkActive="active" href="#">Origen - Destino</a></li>
-                                <li><a (click)=" this.activarMenu = false" routerLink="/lineas" routerLinkActive="active"
-                                              href="#">Líneas</a></li>
-                                <li><a (click)=" this.activarMenu = false" routerLink="/noticias" routerLinkActive="active"
-                                              href="#">Noticias</a></li>
-                                <li><a (click)=" this.activarMenu = false" routerLink="/incidencias"
-                                              routerLinkActive="active" href="#">Incidencias</a></li>
-                                <li><a (click)=" this.activarMenu = false" routerLink="/contacto" routerLinkActive="active"
-                                              href="#">Contacto</a></li>
-                         }
-
-
-                  </ul>
-           </nav>
-    </header>
-    <h1>{{this.comunicacionService.getTitulo()}}</h1>
+       <header [class.menuactivo]="activarMenu">
+              <a class="logo" routerLink="/origen-destino" routerLinkActive="active" href="#">
+                     <img class="logo-full" src="assets/imagenes/logo-horizontal.png" alt="Logo BusAndCo">
+                     <img class="logo-mobile" src="assets/imagenes/logo-solo.png" alt="Logo BusAndCo">
+              </a>
+              <div (click)="alternarMenu()" class="bars">
+                     <div [class.selected1]="activarMenu" [class.line]="!activarMenu"></div>
+                     <div [class.selected2]="activarMenu" [class.line]="!activarMenu"></div>
+                     <div [class.selected3]="activarMenu" [class.line]="!activarMenu"></div>
+              </div>
+              <nav class="nav-bar" [class.active]="activarMenu">
+                     <ul>
+                            @if(isLogged()){
+                                   <li><a (click)=" this.activarMenu = false" routerLink="/admin-crear"
+                                          routerLinkActive="active" href="#">Nueva línea</a></li>
+                                   <li><a (click)=" this.activarMenu = false" routerLink="/admin-listado" routerLinkActive="active"
+                                          href="#">Listado de líneas</a></li>
+                                   <li><a (click)=" this.activarMenu = false" routerLink="/admin-listado-inactivas" routerLinkActive="active"
+                                          href="#">Líneas inactivas</a></li>
+                                   <li><a (click)=" alternarPopup()"
+                                          class="cerrar-sesion">Cerrar sesión</a></li>
+                            }@else{
+                                   <li><a (click)=" this.activarMenu = false" routerLink="/origen-destino"
+                                          routerLinkActive="active" href="#">Origen - Destino</a></li>
+                                   <li><a (click)=" this.activarMenu = false" routerLink="/lineas" routerLinkActive="active"
+                                          href="#">Líneas</a></li>
+                                   <li><a (click)=" this.activarMenu = false" routerLink="/noticias" routerLinkActive="active"
+                                          href="#">Noticias</a></li>
+                                   <li><a (click)=" this.activarMenu = false" routerLink="/incidencias"
+                                          routerLinkActive="active" href="#">Incidencias</a></li>
+                                   <li><a (click)=" this.activarMenu = false" routerLink="/contacto" routerLinkActive="active"
+                                          href="#">Contacto</a></li>
+                            }
+                     </ul>
+              </nav>
+       </header>
+       <h1>{{this.comunicacionService.getTitulo()}}</h1>
 </section>
 <section id="popup" [class.popup]="!popup" [class.popup-activo]="popup">
-    <section class="card cuadro-confirmacion">
+    <dialog class="card cuadro-confirmacion">
            <h2>¿Seguro que quiere cerrar la sesión?</h2>
            <div class="botones-confirmacion">
                   <button class="boton" routerLink="/login" (click)="logOut(); popup = false">Cerrar sesión</button>
                   <button class="boton-secundario" (click)="popup = false">Cancelar</button>
            </div>
-    </section>
+    </dialog>
 </section>

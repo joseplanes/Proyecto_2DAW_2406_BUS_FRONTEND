@@ -1,30 +1,29 @@
 <main class="main lineas">
-    <section class="card cont-filtros">
-            <h3>Filtros</h3>
-            <div class="cont nombre">
-                <label for="nombre">Nombre</label>
-                <input [(ngModel)]="nombre" type="text" name="nombre" id="" placeholder="Introduce el nombre">
-            </div>
-            <div class="cont empresa">
-                <label for="empresa">Empresa</label>
-                <select  [(ngModel)]="empresa" name="empresa" id="">
-                    <option value="Todas" selected>Todas</option>
-                    <option value="TmpMurcia">TmpMurcia</option>
-                    <option value="Transportes de murcia">Transportes de murcia</option>
-                    <option value="Movibus">Movibus</option>
-                </select>
-            </div>
-            <div class="cont tipo">
-                <label for="tipo">Tipo</label>
-                <select [(ngModel)]="tipo" name="tipo" id="">
-                    <option value="Todas" selected>Todas</option>
-                    <option value="Urbana">Urbanas</option>
-                    <option value="Interurbana">Interurbanas</option>
-                </select>
-            </div>
-            <button class="boton-terciario" (click)="borrarFiltros()">Borrar filtros</button>
-    </section>
-
+    <form class="card cont-filtros">
+        <h3>Filtros</h3>
+        <fieldset class="cont nombre">
+            <label for="nombre">Nombre</label>
+            <input [(ngModel)]="nombre" type="text" name="nombre" id="" placeholder="Introduce el nombre">
+        </fieldset>
+        <fieldset class="cont empresa">
+            <label for="empresa">Empresa</label>
+            <select  [(ngModel)]="empresa" name="empresa" id="">
+                <option value="Todas" selected>Todas</option>
+                <option value="TmpMurcia">TmpMurcia</option>
+                <option value="Transportes de murcia">Transportes de murcia</option>
+                <option value="Movibus">Movibus</option>
+            </select>
+        </fieldset>
+        <fieldset class="cont tipo">
+            <label for="tipo">Tipo</label>
+            <select [(ngModel)]="tipo" name="tipo" id="">
+                <option value="Todas" selected>Todas</option>
+                <option value="Urbana">Urbanas</option>
+                <option value="Interurbana">Interurbanas</option>
+            </select>
+        </fieldset>
+        <button class="boton-terciario" (click)="borrarFiltros()">Borrar filtros</button>
+    </form>
     @if ((lineas | nombrelineas:nombre | empresalineas:empresa | tipolineas:tipo).length === 0) {
       <h2>No se han encontrado líneas 🙁​ </h2>
     }@else {

@@ -255,13 +255,13 @@
 }
 @media(max-width: 1150px){
     .paradas{
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(7, 1fr);
     }
     .origen, .destino{
-        grid-column: 1 / 4;
+        grid-column: 1 / 7;
     }
     .destino{
-        grid-column: 1 / 4;
+        grid-column: 1 / 7;
     }
     .linea-trayecto{
         width: 52%;
@@ -329,7 +329,7 @@
         gap: 0;
     }
     .parada-destino{
-        justify-self: center;
+        justify-self: flex-start;
     }
     .linea{
         font-size: 20px;

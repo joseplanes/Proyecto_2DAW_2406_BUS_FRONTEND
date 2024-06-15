@@ -8,6 +8,9 @@
     top: -50px; 
     gap: 20px;
 }
+fieldset{
+    border: 0;
+}
 input{
     width: 100%;
 }

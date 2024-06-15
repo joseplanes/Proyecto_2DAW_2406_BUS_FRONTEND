@@ -1,4 +1,3 @@
-<p>paradas works!</p>
 <section class="card paradas">
     <table>
         <thead>
@@ -18,7 +17,6 @@
                     <td class="enlace">
                         @for (enlace of parada.enlaces; track $index) {
                             <a [routerLink]="['/detalle-linea', 5]" routerLinkActive="active" target="_blank">{{enlace.nombre}}</a>
-                           
                         }
                     </td>
                 </tr>
@@ -26,5 +24,4 @@
         </tbody>
     </table>
     <app-mapa [id]="'mapa2'" [paradas]="this.paradas" [recorrido]="this.recorrido" class="mapa2"/>
-    
 </section>

@@ -1,8 +1,10 @@
 .lineas{
     display: flex;    
     flex-direction: column;
-  }
-  
+}
+fieldset{
+    border: 0;
+}
   .cont-filtros{
       display: grid;
       grid-template-columns: repeat(5, 1fr);

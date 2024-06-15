@@ -6,14 +6,14 @@
         </div>
         <p>{{lineaBorrada.descripion}}</p>
     </section>
-        <button (click)="alternarPopup()" class="boton-secundario">Activar</button>
+    <button (click)="alternarPopup()" class="boton-secundario">Activar</button>
 </section>
 <section id="popup" [class.popup]="!popup" [class.popup-activo]="popup">
     <section class="card cuadro-confirmacion">
            <h2>¿Seguro que quiere activar la línea {{lineaBorrada.linea}}?</h2>
            <div class="botones-confirmacion">
-                  <button class="boton" (click)="recuperarLinea(); popup = false">Activar</button>
-                  <button class="boton-secundario" (click)="popup = false">Cancelar</button>
+                <button class="boton" (click)="recuperarLinea(); popup = false">Activar</button>
+                <button class="boton-secundario" (click)="popup = false">Cancelar</button>
            </div>
     </section>
 </section>
