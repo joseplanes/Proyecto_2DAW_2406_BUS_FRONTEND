@@ -9,7 +9,6 @@ import { BehaviorSubject, Observable, tap } from 'rxjs';
 export class AutenticacionService {
 
   private readonly JWT_TOKEN = 'JWT_TOKEN';
-  private loggedUser?: string;
   private isAuthenticatedSubject = new BehaviorSubject<boolean>(false);
   private http = inject(HttpClient);
   private router = inject(Router);
@@ -27,11 +26,13 @@ export class AutenticacionService {
       );
   }
   isLoggedIn() {
-    //return this.isAuthenticatedSubject.value;
-    return true;
+    if(localStorage.getItem(this.JWT_TOKEN) != null){
+      return true;
+    }else{
+      return false;
+    }
   }
   private doLoginUser(username: string, tokens: any) {
-    this.loggedUser = username;
     this.storeJwtToken(tokens.token);
     this.isAuthenticatedSubject.next(true);
   }

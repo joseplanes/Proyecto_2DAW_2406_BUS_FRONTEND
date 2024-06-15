@@ -25,8 +25,16 @@ export class AdminService {
     return this.lineasEliminadas;
   }
   crearLinea(linea:any): Observable<any>{
-    const body = { linea }
-    return this.http.post<any>(this.urlBase + 'addlinea', body)
+
+    return this.http.post<any>(this.urlBase + 'addlinea', linea)
+  }
+  editarLinea(id:number, linea:any): Observable<any>{
+
+    return this.http.put<any>(this.urlBase + 'editarLinea/' + id, linea)
+
+  }
+  verLinea(id:number){
+    return this.http.get<any>(this.urlBase + 'verLinea/' + id)
   }
   borrarLinea(id:number){
     const body = { title: 'Borrar línea' }

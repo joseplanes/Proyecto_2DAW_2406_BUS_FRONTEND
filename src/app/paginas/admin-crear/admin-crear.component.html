@@ -1,14 +1,15 @@
 <main class="main admin-crear">
     <form class="nueva-linea">
+        <p>* Campos obligatorios</p>
         <fieldset class="nombre">
             <label for="nombre">Nombre *</label>
             <input [(ngModel)]="nombre" type="text" name="nombre" id="nombre">
-            <p class="error-nombre">{{errorNombre}}</p>
+            <p class="error error-nombre">{{errorNombre}}</p>
         </fieldset>
         <fieldset class="descripcion">
             <label for="descripcion">Descripción *</label>
             <input [(ngModel)]="descripcion" type="text" name="descripcion" id="descripcion">
-            <p class="error-descripcion">{{errorDescripcion}}</p>
+            <p class="error error-descripcion">{{errorDescripcion}}</p>
         </fieldset>
         <fieldset class="empresa">
             <label for="empresa">Empresa *</label>
@@ -26,19 +27,23 @@
             </select>
         </fieldset>
         <fieldset class="sublineas">
-            <p>Sublíneas</p>
+            <p>Sublíneas</p><button (click)="preventSubmit($event); addSublinea()" class="sub add boton-secundario">Añadir</button>
+            <button (click)="preventSubmit($event); eliminarSublinea()" class="sub delete boton-secundario">Eliminar</button>
             <ul>
-                <li>
-                    @for (sublinea of sublineas; track $index) {
-                        <p>{{sublinea}}</p>
-                    }
-                </li>
+                @for (sublinea of sublineas; track $index) {
+                    <li>{{sublinea}}</li> 
+                }
             </ul>
-            <button (click)="preventSubmit($event); addSublinea()" class="boton-secundario">Añadir sublínea</button>
-            <button (click)="preventSubmit($event); eliminarSublinea()" class="boton-secundario">Eliminar sublínea</button>
-
         </fieldset>
-        <button (click)="preventSubmit($event); crearLinea()" class="boton">Crear Línea</button>
+        <button (click)="preventSubmit($event); alternarPopup()" class="boton">Crear Línea</button>
     </form>
-    
 </main>
+<section id="popup" [class.popup]="!popup" [class.popup-activo]="popup">
+    <section class="card cuadro-confirmacion">
+           <h2>¿Seguro que quiere crear la línea?</h2>
+           <div class="botones-confirmacion">
+                  <button class="boton" (click)="crearLinea(); popup = false">Crear</button>
+                  <button class="boton-secundario" (click)="popup = false">Cancelar</button>
+           </div>
+    </section>
+</section>

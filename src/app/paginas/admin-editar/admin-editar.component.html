@@ -1,1 +1,40 @@
-<p>admin-editar works!</p>
+<main class="main admin-editar">
+    <form class="editar-linea">
+        <p>* Campos obligatorios</p>
+        <fieldset class="nombre">
+            <label for="nombre">Nombre *</label>
+            <input [(ngModel)]="nombre" type="text" name="nombre" id="nombre">
+            <p class="error error-nombre">{{errorNombre}}</p>
+        </fieldset>
+        <fieldset class="descripcion">
+            <label for="descripcion">Descripción *</label>
+            <input [(ngModel)]="descripcion" type="text" name="descripcion" id="descripcion">
+            <p class="error error-descripcion">{{errorDescripcion}}</p>
+        </fieldset>
+        <fieldset class="empresa">
+            <label for="empresa">Empresa *</label>
+            <select [(ngModel)]="empresa" name="empresa" id="empresa">
+                @for (empresa of empresas; track empresa.id) {
+                    <option value="{{empresa.empresa}}">{{empresa.empresa}}</option>
+                }
+            </select>
+        </fieldset>
+        <fieldset class="tipo">
+            <label for="tipo">Tipo *</label>
+            <select [(ngModel)]="tipo" name="tipo" id="empresa">
+                <option value="Urbana">Urbana</option>
+                <option value="Interurbana">Interurbana</option>
+            </select>
+        </fieldset>
+        <button (click)="preventSubmit($event); alternarPopup()" class="boton">Editar Línea</button>
+    </form>
+</main>
+<section id="popup" [class.popup]="!popup" [class.popup-activo]="popup">
+    <section class="card cuadro-confirmacion">
+           <h2>¿Seguro que quiere guardar la línea?</h2>
+           <div class="botones-confirmacion">
+                  <button class="boton" (click)="crearLinea(); popup = false">Guardar</button>
+                  <button class="boton-secundario" (click)="popup = false">Cancelar</button>
+           </div>
+    </section>
+</section>

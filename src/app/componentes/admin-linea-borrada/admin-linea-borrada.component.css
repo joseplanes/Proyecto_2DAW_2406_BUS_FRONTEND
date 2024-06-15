@@ -26,9 +26,10 @@
     visibility: hidden;
     width: 0;
     height: 0;
+    display: none;
  }
  .popup-activo{
-    width: 100vw;
+    width: 100%;
     height: 100vh;
     position: fixed;
     top: 0;

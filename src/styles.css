@@ -1,5 +1,5 @@
-/* You can add global styles to this file, and also import other style files */
 
+@import url('https://fonts.googleapis.com/css2?family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap');
 :root{
     /*Paleta de colores*/
     --amarillo: #FFD166;
@@ -12,11 +12,11 @@
     --gris: #EEE;
 
 
-    /*Fuentes*/
+    /* Fuentes*/
     @font-face {
         font-family: Urbanist;
-        src: url('../public/assets/fuentes/Urbanist-VariableFont_wght.ttf') format('ttf'),
-             url('../public/assets/fuentes/Urbanist-Italic-VariableFont_wght.ttf') format('ttf');
+        src: url('https://fonts.googleapis.com/css2?family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap') format('ttf'),
+             url('https://fonts.googleapis.com/css2?family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap') format('ttf');
     }
     body {
         font-family: Urbanist, sans-serif;

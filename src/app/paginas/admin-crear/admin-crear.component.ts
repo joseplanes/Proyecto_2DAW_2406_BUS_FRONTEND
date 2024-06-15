@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { ComunicacionService } from '../../servicios/comunicacion.service';
 import { AdminService } from '../../servicios/admin.service';
 import { FormsModule } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-admin-crear',
@@ -12,6 +13,7 @@ import { FormsModule } from '@angular/forms';
 })
 export class AdminCrearComponent {
   titulo: string = 'Nueva línea - Área privada';
+  popup:boolean = false;
   nombre: string = '';
   empresa: string = '1';
   tipo:string = 'Urbana'
@@ -20,11 +22,12 @@ export class AdminCrearComponent {
   errorDescripcion:string = '';
   empresas: any[] = [];
   sublineas: any[] = ['A'];
-  regexNombre: RegExp = /^([A-Z0-9])+$/;
-  regexDescripcion: RegExp = /^([A-Za-z0-9 ,.ºª\s])+[-]{1}[A-Za-z0-9 ,.-ºª\s]+$/;
+  regexNombre: RegExp = /^[A-Z]?[0-9]{1,2}$/;
+  regexDescripcion: RegExp = /^([A-Za-z0-9 ,.ºª\s])+[-]{1}[A-Za-z0-9 ,.\-ºª\s]+$/;
   constructor(
     private comunicacionService: ComunicacionService,
-    private adminService: AdminService
+    private adminService: AdminService,
+    private router: Router
   ) {
     this.comunicacionService.setTitulo(this.titulo);
     this.adminService.setEmpresas().subscribe((data) => {
@@ -46,14 +49,15 @@ export class AdminCrearComponent {
     }
     
   }
+  alternarPopup(){
+    this.popup = !this.popup;
+  }
   preventSubmit(event: any){
     event.preventDefault();
   }
   crearLinea(){
-    console.log('Nombre ', this.nombre, 'empresa ',this.empresa, 'tipo ', this.tipo, 'descripcion ', this.descripcion)
     this.errorNombre = '';
     this.errorDescripcion = '';
-    console.log('Nombre ', this.nombre, 'empresa ',this.empresa, 'tipo ', this.tipo, 'descripcion ', this.descripcion)
     if(this.nombre === ''){
       this.errorNombre = 'El campo nombre es obligatorio.';
     }else if(!this.regexNombre.test(this.nombre)){
@@ -62,7 +66,7 @@ export class AdminCrearComponent {
     if(this.descripcion === ''){
       this.errorDescripcion = 'El campo descripción es obligatorio.';
     }else if(!this.regexDescripcion.test(this.descripcion)){
-      this.errorDescripcion = 'El formato del campo descripción es incorrecto. Debe ser "Población origen-Población destino".';
+      this.errorDescripcion = 'El formato del campo descripción es incorrecto. Debe separar los elementos de la descripción con un guión';
     }
     if(this.errorNombre === '' && this.errorDescripcion === ''){
       let sublineasString: string = this.sublineas.join(',');
@@ -73,7 +77,7 @@ export class AdminCrearComponent {
         sublinea: sublineasString,
         tipo: this.tipo,
       }).subscribe((data) => {
-        console.log(data);
+        this.router.navigate(['/admin-listado']);
       });
 
     }
