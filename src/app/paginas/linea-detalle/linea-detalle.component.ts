@@ -74,7 +74,7 @@ export class LineaDetalleComponent implements OnInit{
       }
       
         this.servicioLineaDetalle.setCuerpoLinea(this.idLinea, this.idSublinea, this.direccion).subscribe((json) => {
-          this.paradas = json;
+          this.paradas = json[0];
           this.parada = this.paradas[0];
         });
     }

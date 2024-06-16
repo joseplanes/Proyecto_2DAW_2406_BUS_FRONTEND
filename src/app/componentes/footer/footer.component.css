@@ -8,26 +8,58 @@ footer{
     flex-direction: column;
     align-items: center;
     justify-content: space-evenly;
+    gap: 25px;
+    padding: 25px 0;
+
 }
-h3{
-    font-weight: normal;
-    font-size: 48px;
-    margin: 0;
+.logo{
+    width: 200px;
+    height: auto;
+}
+p{
+    width: 80%;
+    text-align: center;
+}
+p a{
+    color: white;
+    text-decoration: none;
+    transition: all 0.2s linear;
+}
+p a:hover{
+    color: white;
+    text-decoration: underline;
+    transition: all 0.2s linear;
 }
 .enlaces{
     display: flex;
     justify-content: center;
-    gap: 48px;
+    gap: 50px;
 }
 .enlaces a{
     text-decoration: none;
     color: inherit;
     font-size: 24px;
-    transition: color 0.2s linear;
+    transition: all 0.3s linear;
+    text-shadow: 0px 0px 0px rgba(255,255,255,0.);
 }
 .enlaces a:hover{
     text-decoration: none;
-    color: var(--azul-oscuro);
     font-size: 24px;
-    transition: color 0.2s linear;
+    transition: all 0.3s linear;
+    text-shadow: -1px -1px 10px rgba(255,255,255,1);
+}
+@media(max-width: 650px){
+    .enlaces{
+        flex-direction: column;
+        gap: 24px;
+    }
+    .enlaces a{
+        text-align: center;
+    }
+    .logo{
+        width: 150px;
+    }
+    p{
+        width: 90%;
+    }
 }

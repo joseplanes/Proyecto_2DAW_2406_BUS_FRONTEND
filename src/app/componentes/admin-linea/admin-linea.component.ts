@@ -1,4 +1,4 @@
-import { Component, Input, OnChanges, SimpleChanges, TemplateRef, ViewContainerRef } from '@angular/core';
+import { Component, EventEmitter, Input, OnChanges, Output, SimpleChanges, TemplateRef, ViewContainerRef } from '@angular/core';
 import { AdminService } from '../../servicios/admin.service';
 import { Router, RouterModule } from '@angular/router';
 
@@ -12,11 +12,13 @@ import { Router, RouterModule } from '@angular/router';
 export class AdminLineaComponent{
   @Input() linea: any;
   popup: boolean = false;
+  @Output() lineaBorrada: any = new EventEmitter<boolean>();
   constructor(private adminService: AdminService, private router: Router) {
     
    }
   borrarLinea() {
     this.adminService.borrarLinea(this.linea.id).subscribe((data) => {
+      this.lineaBorrada.emit();
     });
   }
   alternarPopup(){

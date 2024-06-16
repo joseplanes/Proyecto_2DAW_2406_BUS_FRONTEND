@@ -28,6 +28,11 @@ export class AdminListadoBorradasComponent {
   ngOnInit() {
     this.comunicacionService.setTitulo(this.titulo);
   }
+actualizarLineas(){
+    this.adminService.setLineasEliminadas().subscribe((data) => {
+      this.lineasBorradas = data[0];
+    });
+}
   borrarFiltros(){
     this.nombre = '';
     this.empresa = 'Todas';

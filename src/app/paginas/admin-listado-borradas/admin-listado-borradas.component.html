@@ -28,7 +28,7 @@
     <h2>No se han encontrado líneas inactivas 🙁​ </h2>
   }@else {
   @for (linea of lineasBorradas | nombrelineas:nombre | empresalineas:empresa | tipolineas:tipo; track linea.id) {
-    <app-admin-linea-borrada [lineaBorrada]="linea"/>
+    <app-admin-linea-borrada (lineaActivada)="actualizarLineas()" [lineaBorrada]="linea"/>
   }
 }
 </main>

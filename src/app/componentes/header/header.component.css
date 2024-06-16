@@ -67,6 +67,9 @@ h1{
  .cerrar-sesion:hover{
     cursor: pointer;
  }
+ dialog{
+    justify-content: center;
+ }
  .popup{
     visibility: hidden;
     width: 0;

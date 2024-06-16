@@ -17,7 +17,7 @@ export class AdminService {
 
   setLineas(): Observable<any[]>{
     this.lineas = this.http.get<any[]>(this.urlBase + 'listado')
-    
+
     return this.lineas;
   }
   setLineasEliminadas(): Observable<any[]>{

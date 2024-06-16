@@ -72,5 +72,17 @@ a:hover{
     .paradas{
         top: -25px;
     }
-  
+ }
+ @media(max-width: 350px){
+    thead tr th{
+        font-size: 14px;
+        padding: 0 4px;
+    }
+    tbody tr td{
+        font-size: 14px;
+    }
+    .boton-secundario{
+        padding: 4px 6px;
+        font-size: 14px;
+    }
  }

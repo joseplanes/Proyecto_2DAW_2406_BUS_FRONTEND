@@ -66,7 +66,7 @@ export class AdminCrearComponent {
     if(this.descripcion === ''){
       this.errorDescripcion = 'El campo descripción es obligatorio.';
     }else if(!this.regexDescripcion.test(this.descripcion)){
-      this.errorDescripcion = 'El formato del campo descripción es incorrecto. Debe separar los elementos de la descripción con un guión';
+      this.errorDescripcion = 'El formato del campo descripción es incorrecto. Debe separar los elementos de la descripción con un guión (-).';
     }
     if(this.errorNombre === '' && this.errorDescripcion === ''){
       let sublineasString: string = this.sublineas.join(',');

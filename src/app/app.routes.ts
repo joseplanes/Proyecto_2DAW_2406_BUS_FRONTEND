@@ -13,6 +13,8 @@ import { AdminCrearComponent } from './paginas/admin-crear/admin-crear.component
 import { Error404Component } from './paginas/error404/error404.component';
 import { AdminEditarComponent } from './paginas/admin-editar/admin-editar.component';
 import { AdminListadoBorradasComponent } from './paginas/admin-listado-borradas/admin-listado-borradas.component';
+import { AvisoLegalComponent } from './paginas/aviso-legal/aviso-legal.component';
+import { PoliticaPrivacidadComponent } from './paginas/politica-privacidad/politica-privacidad.component';
 
 export const routes: Routes = [
     {
@@ -84,6 +86,16 @@ export const routes: Routes = [
         component: AdminEditarComponent,
         canActivate: [loginGuard],
         title: 'Editar línea - Administración - Bus&Co',
+    },
+    {
+        path: 'aviso-legal',
+        component: AvisoLegalComponent,
+        title: 'Aviso Legal - Bus&Co',
+    },
+    {
+        path: 'politica-privacidad',
+        component: PoliticaPrivacidadComponent,
+        title: 'Política de privacidad - Bus&Co',
     },
     {
         path: '**',

@@ -6,6 +6,7 @@ import { EmpresalineasPipe } from '../../pipes/empresalineas.pipe';
 import { TipolineasPipe } from '../../pipes/tipolineas.pipe';
 import { AdminLineaComponent } from '../../componentes/admin-linea/admin-linea.component';
 import { FormsModule } from '@angular/forms';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-admin-listado',
@@ -28,8 +29,19 @@ export class AdminListadoComponent {
       this.lineas = data[0];
     });
   }
+  setLineas():Observable<any[]>{
+    this.adminService.setLineas().subscribe((data) => {
+      this.lineas = data[0];
+    });
+    return this.lineas;
+  }
   ngOnInit() {
     this.comunicacionService.setTitulo(this.titulo);
+  }
+  actualizarLineas(){
+    this.adminService.setLineas().subscribe((data) => {
+      this.lineas = data[0];
+    });
   }
   borrarFiltros(){
     this.nombre = '';
