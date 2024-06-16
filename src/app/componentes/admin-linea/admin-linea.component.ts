@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnChanges, Output, SimpleChanges, TemplateRef, ViewContainerRef } from '@angular/core';
+import { Component, EventEmitter, Input, OnChanges, Output} from '@angular/core';
 import { AdminService } from '../../servicios/admin.service';
 import { Router, RouterModule } from '@angular/router';
 

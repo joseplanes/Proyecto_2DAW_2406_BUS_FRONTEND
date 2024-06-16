@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
 export class LineasService {
 
   private lineas:any;
-  private urlBase:string ="http://127.0.0.1:8000/usuario/lineas"
+  private urlBase:string ="http://44.209.101.20/usuario/lineas"
 
   constructor(private http:HttpClient) {
     this.setLineas();

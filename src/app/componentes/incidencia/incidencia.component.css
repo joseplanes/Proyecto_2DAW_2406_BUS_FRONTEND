@@ -21,9 +21,10 @@ p{
     font-size: 18px;
 }
 a{
-    color: var(--azul-oscuro);
-    text-decoration: none;
+    color: var(--azul-claro);
+   text-decoration: none;
+    
 }
 a:hover{
-    color: var(--azul-claro);
+    text-decoration: underline;
 }

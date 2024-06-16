@@ -12,7 +12,9 @@ import { RouterLink } from '@angular/router';
   styleUrl: './paradas.component.css'
 })
 export class ParadasComponent {
-  constructor(private servicioComunicacion: ComunicacionService, private servicioLineaDetalle: LineaDetalleService) { }
+  constructor(private servicioComunicacion: ComunicacionService, private servicioLineaDetalle: LineaDetalleService) {
+    console.log(this.paradas);
+   }
   @Input() paradas: any;
   @Input() recorrido: any;
 
@@ -28,5 +30,8 @@ export class ParadasComponent {
   setParada(parada:any) {
     this.servicioLineaDetalle.setParada(parada);
     this.servicioComunicacion.verHorarios();
+  }
+  getEnlacesLength(parada:any) {
+    return parada.enlaces.length;
   }
 }

@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { ComunicacionService } from '../../servicios/comunicacion.service';
 import { OrigenDestinoService } from '../../servicios/origen-destino.service';
 import { FormsModule } from '@angular/forms';
 import {  format, dayStart, addDay } from '@formkit/tempo';
@@ -19,7 +18,6 @@ export class BuscadorComponent {
   paradas: any = JSON.parse(localStorage.getItem('paradas') || '[]');
 
   constructor(
-    private comunicacionService: ComunicacionService,
     private origenDestinoService: OrigenDestinoService
   ) {
     if (localStorage.getItem('paradas') == null) {

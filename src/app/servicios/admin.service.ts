@@ -1,16 +1,13 @@
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, catchError } from 'rxjs';
+import { Observable } from 'rxjs';
 
-const headers = new HttpHeaders({
-  Authorization: 'Bearer ' + localStorage.getItem('token')
-});
 @Injectable({
   providedIn: 'root'
 })
 export class AdminService {
 
-  private urlBase = 'http://localhost:8000/api/';
+  private urlBase = 'http://44.209.101.20/api/';
   lineas:any
   lineasEliminadas:any
   constructor(private http: HttpClient) { }

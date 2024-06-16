@@ -30,7 +30,7 @@ tbody tr td{
 }
 a{
     font-weight: 600;
-    color: var(--azul-oscuro);
+    color: var(--azul-claro);
     text-decoration: none;
 }
 a:hover{

@@ -14,7 +14,7 @@ export class LineaDetalleService {
   private parada:any;
   private direccion:any;
   private idSublinea:any;
-  private urlBase: string = 'http://127.0.0.1:8000/usuario/';
+  private urlBase: string = 'http://44.209.101.20/usuario/';
 
 
   constructor(private http: HttpClient) {}

@@ -1,15 +1,16 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 import { ComunicacionService } from '../../servicios/comunicacion.service';
 import { LineaDetalleService } from '../../servicios/linea-detalle.service';
 import { ParadasComponent } from '../../componentes/paradas/paradas.component';
 import { HorariosComponent } from '../../componentes/horarios/horarios.component';
 import { MapaComponent } from '../../componentes/mapa/mapa.component';
 
+
 @Component({
   selector: 'app-linea-detalle',
   standalone: true,
-  imports: [ParadasComponent, HorariosComponent, MapaComponent],
+  imports: [ParadasComponent, HorariosComponent, MapaComponent, RouterModule],
   templateUrl: './linea-detalle.component.html',
   styleUrl: './linea-detalle.component.css'
 })
@@ -24,9 +25,9 @@ export class LineaDetalleComponent implements OnInit{
   horarios:any;
   parada:any;
   direccion:any;
+  direccionNombre:any;
   errorDireccion:boolean = false;
   interval:any;
-
   constructor(private activatedRoute: ActivatedRoute, private router: Router, private servicioComunicacion: ComunicacionService, private servicioLineaDetalle: LineaDetalleService) { }
 
   ngOnInit(): void {
@@ -34,11 +35,14 @@ export class LineaDetalleComponent implements OnInit{
     
     this.servicioLineaDetalle.setCabeceraLinea(this.idLinea).subscribe((json) => {
       this.cabeceraLinea = json[0];
+      console.log(this.cabeceraLinea);
       this.recorrido = this.cabeceraLinea.coordenadas;
       this.idSublinea = this.servicioLineaDetalle.setIdSublinea(this.cabeceraLinea.sublineas[0].id);
       this.nombreSublinea = this.cabeceraLinea.sublineas[0].nombre;
       this.direccion = this.servicioLineaDetalle.setDireccion(this.cabeceraLinea.direccion[0].direccion);
+      this.direccionNombre = this.servicioLineaDetalle.setDireccion(this.cabeceraLinea.direccion[0].direccion);
       this.servicioLineaDetalle.setCuerpoLinea(this.idLinea, this.idSublinea, this.direccion).subscribe((json) => {
+        console.log(json[0])
         this.paradas = json[0];
         this.parada = this.paradas[0];
       });
@@ -57,29 +61,72 @@ export class LineaDetalleComponent implements OnInit{
     return this.servicioComunicacion.getMostrarHorarios();
   }
   cambiarSublinea(idSublinea: string) {
+    this.errorDireccion = false;
     let sublineaParse = parseInt(idSublinea);
-      this.idSublinea = sublineaParse;
-      const sublineaSeleccionada = this.cabeceraLinea.sublineas.find((sublinea:any) => sublinea.id === this.idSublinea);
-      if (sublineaSeleccionada) {
-        this.nombreSublinea = sublineaSeleccionada.nombre;
+    this.idSublinea = sublineaParse;
+    const sublineaSeleccionada = this.cabeceraLinea.sublineas.find((sublinea:any) => sublinea.id === this.idSublinea);
+    if (sublineaSeleccionada) {
+      this.nombreSublinea = sublineaSeleccionada.nombre;
     }
+    this.servicioLineaDetalle.setCuerpoLinea(this.idLinea, this.idSublinea, this.cabeceraLinea.direccion[0].direccion).subscribe((json) => {
+      this.direccionNombre = this.servicioLineaDetalle.setDireccion(this.cabeceraLinea.direccion[0].direccion);
+      this.direccion = this.servicioLineaDetalle.setDireccion(this.cabeceraLinea.direccion[0].direccion);
+      this.paradas = json[0];
+      this.parada = this.paradas[0];
+    },
+    error => {
+      this.servicioLineaDetalle.setCuerpoLinea(this.idLinea, this.idSublinea, this.cabeceraLinea.direccion[1].direccion).subscribe((json) => {
+        this.direccionNombre = this.servicioLineaDetalle.setDireccion(this.cabeceraLinea.direccion[1].direccion);
+        this.paradas = json[0];
+        this.parada = this.paradas[0];
+      });
+    });
+    this.ocultarHorarios();
   }
   cambiarDireccion(){
-    if(this.cabeceraLinea.direccion[1]){
-      if(this.direccion == this.cabeceraLinea.direccion[1].direccion){
-        this.direccion = this.servicioLineaDetalle.setDireccion(this.cabeceraLinea.direccion[0].direccion);
+    if(!this.errorDireccion){
+      if(this.cabeceraLinea.direccion[1]){
+        if(this.direccion == this.cabeceraLinea.direccion[1].direccion){
+          this.direccion = this.servicioLineaDetalle.setDireccion(this.cabeceraLinea.direccion[0].direccion);
+        }
+        else{
+          this.direccion = this.servicioLineaDetalle.setDireccion(this.cabeceraLinea.direccion[1].direccion);
+        }
+        this.servicioLineaDetalle.setCuerpoLinea(this.idLinea, this.idSublinea, this.direccion).subscribe(
+          (json) => {
+            this.paradas = json[0];
+            this.parada = this.paradas[0];
+            if(this.cabeceraLinea.direccion[1]){
+              if(this.direccionNombre == this.cabeceraLinea.direccion[1].direccion){
+                this.direccionNombre = this.servicioLineaDetalle.setDireccion(this.cabeceraLinea.direccion[0].direccion);
+              }
+              else{
+                this.direccionNombre = this.servicioLineaDetalle.setDireccion(this.cabeceraLinea.direccion[1].direccion);
+              }
+            }
+          },
+          error => {
+            this.errorDireccion = true;
+            if(this.interval){
+              clearInterval(this.interval);
+            }
+            this.interval = setInterval(() => {
+              this.errorDireccion = false;
+            }, 3000);
+          }
+        );
       }
       else{
-        this.direccion = this.servicioLineaDetalle.setDireccion(this.cabeceraLinea.direccion[1].direccion);
+        this.errorDireccion = true;
+        if(this.interval){
+          clearInterval(this.interval);
+        }
+        this.interval = setInterval(() => {
+          this.errorDireccion = false;
+        }, 3000);
       }
-      
-        this.servicioLineaDetalle.setCuerpoLinea(this.idLinea, this.idSublinea, this.direccion).subscribe((json) => {
-          this.paradas = json[0];
-          this.parada = this.paradas[0];
-        });
     }
     else{
-      this.errorDireccion = true;
       if(this.interval){
         clearInterval(this.interval);
       }
@@ -87,5 +134,6 @@ export class LineaDetalleComponent implements OnInit{
         this.errorDireccion = false;
       }, 3000);
     }
+    
   }
 }

@@ -16,7 +16,13 @@
                     <td><button (click)="setParada(parada)" class="boton-secundario">Horarios</button></td>
                     <td class="enlace">
                         @for (enlace of parada.enlaces; track $index) {
-                            <a [routerLink]="['/detalle-linea', 5]" routerLinkActive="active" target="_blank">{{enlace.nombre}}</a>
+                            @if($index + 1 < getEnlacesLength(parada)){
+                                <a [routerLink]="['/detalle-linea', 5]" routerLinkActive="active" target="_blank">{{enlace.nombre}}, </a>
+
+                            }
+                            @else {
+                                <a [routerLink]="['/detalle-linea', 5]" routerLinkActive="active" target="_blank">{{enlace.nombre}} </a>
+                            }
                         }
                     </td>
                 </tr>

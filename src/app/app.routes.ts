@@ -36,7 +36,7 @@ export const routes: Routes = [
     {
         path: 'detalle-linea/:id',
         component: LineaDetalleComponent,
-        title: 'Detalle Linea - Bus&Co',
+        title: 'Detalle Línea - Bus&Co',
     },
     {
         path: 'noticias',

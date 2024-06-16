@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
 export class IncidenciasService {
 
   private incidencias:any;
-  private urlBase:string ="http://127.0.0.1:8000/usuario/incidencias"
+  private urlBase:string ="http://44.209.101.20/usuario/incidencias"
 
   constructor(private http:HttpClient) {
     this.setIncidencias();

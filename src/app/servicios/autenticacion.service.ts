@@ -17,7 +17,7 @@ export class AutenticacionService {
 
   login(user: { username: string; password: string }): Observable<any> {
     return this.http
-      .post<any>('http://localhost:8000/api/login_check', user)
+      .post<any>('http://44.209.101.20/api/login_check', user)
       .pipe(
         tap((tokens) => {
           this.doLoginUser(user.username, tokens);

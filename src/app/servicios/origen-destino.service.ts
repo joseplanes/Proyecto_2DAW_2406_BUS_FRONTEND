@@ -20,8 +20,8 @@ export class OrigenDestinoService {
   private horariosOrigen: any;
   private horariosDestino: any;
   private ordenHorarioOrigen: number = 0;
-  urlParadas: string = 'http://localhost:8000/usuario/busqueda';
-  urlResultados: string = 'http://localhost:8000/usuario/origenDestino';
+  urlParadas: string = 'http://44.209.101.20/usuario/busqueda';
+  urlResultados: string = 'http://44.209.101.20/usuario/origenDestino';
   constructor(private http: HttpClient) {}
 
   setBusqueda(busqueda: boolean) {
