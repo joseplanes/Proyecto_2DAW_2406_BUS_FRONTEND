@@ -1,6 +1,6 @@
 <section class="card linea">
     <div class="left">
-        <h2>{{linea.linea}}</h2>
+        <h2><a [routerLink]="['/detalle-linea', linea.idLinea]" href="">{{linea.linea}}</a></h2>
         <p>{{linea.descripcion}}</p>
     </div>
     <div class="right">

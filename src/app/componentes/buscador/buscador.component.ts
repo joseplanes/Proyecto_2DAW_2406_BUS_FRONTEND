@@ -63,6 +63,8 @@ export class BuscadorComponent {
     );
   }
   buscar(fecha: any, hora: any) {
+    this.setParadaOrigen(this.origen);
+    this.setParadaDestino(this.destino);
     let tipo: string;
     let horaFinal: any;
     let hoy:boolean = false;

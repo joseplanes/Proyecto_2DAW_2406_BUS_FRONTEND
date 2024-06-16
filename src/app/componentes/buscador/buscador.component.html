@@ -7,11 +7,11 @@
     <form class="formulario">
         <fieldset class="cont origen">
             <label for="origen">Origen *</label>
-            <input (keyup)="setParadaOrigen(origen)" [(ngModel)]="origen" type="text" list="paradas" name="origen" id="origen" placeholder="Introduce el origen">
+            <input [(ngModel)]="origen" type="text" list="paradas" name="origen" id="origen" placeholder="Introduce el origen">
         </fieldset>
         <fieldset class="cont destino">
             <label for="destino">Destino *</label>
-            <input (keyup)="setParadaDestino(destino)" [(ngModel)]="destino" type="text" list="paradas" name="destino" id="destino" placeholder="Introduce el destino">
+            <input  [(ngModel)]="destino" type="text" list="paradas" name="destino" id="destino" placeholder="Introduce el destino">
         </fieldset>
         <fieldset class="cont fecha">
             <label for="fecha">Fecha</label>

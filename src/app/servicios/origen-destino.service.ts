@@ -209,7 +209,7 @@ export class OrigenDestinoService {
               paradaLineaOrigen.idParada != this.paradaOrigen.idParada &&
               paradaLineaOrigen.idParada !=
                 this.paradaDestino
-                  .idParada /*&& lineaOrigen.idSublinea != lineaDestino.idSublinea*/
+                  .idParada && lineaOrigen.idSublinea != lineaDestino.idSublinea
             ) {
               //en las paradas coincidentes entre las dos lineas, comprobar el orden de las paradas
               if (

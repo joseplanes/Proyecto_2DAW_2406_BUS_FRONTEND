@@ -4,6 +4,13 @@
     min-height: 120px;
     height: auto;
 }
+a{
+    text-decoration: none;
+    color: var(--azul-oscuro);
+}
+a:hover{
+    color: var(--azul-claro);
+}
 .left{
     display: flex;
     flex-direction: column;
