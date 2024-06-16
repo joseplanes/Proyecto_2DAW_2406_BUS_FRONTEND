@@ -35,14 +35,12 @@ export class LineaDetalleComponent implements OnInit{
     
     this.servicioLineaDetalle.setCabeceraLinea(this.idLinea).subscribe((json) => {
       this.cabeceraLinea = json[0];
-      console.log(this.cabeceraLinea);
       this.recorrido = this.cabeceraLinea.coordenadas;
       this.idSublinea = this.servicioLineaDetalle.setIdSublinea(this.cabeceraLinea.sublineas[0].id);
       this.nombreSublinea = this.cabeceraLinea.sublineas[0].nombre;
       this.direccion = this.servicioLineaDetalle.setDireccion(this.cabeceraLinea.direccion[0].direccion);
       this.direccionNombre = this.servicioLineaDetalle.setDireccion(this.cabeceraLinea.direccion[0].direccion);
       this.servicioLineaDetalle.setCuerpoLinea(this.idLinea, this.idSublinea, this.direccion).subscribe((json) => {
-        console.log(json[0])
         this.paradas = json[0];
         this.parada = this.paradas[0];
       });

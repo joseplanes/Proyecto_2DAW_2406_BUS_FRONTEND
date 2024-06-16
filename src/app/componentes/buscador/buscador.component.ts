@@ -113,10 +113,11 @@ export class BuscadorComponent {
     this.origenDestinoService.buscar(tipo, horaFinal);
 
     this.origenDestinoService.setFecha(fecha);
-    if(hoy && this.origenDestinoService.getLineasDirectas().length === 0 && this.origenDestinoService.getCombinaciones().length === 0){
-      this.origenDestinoService.buscar(tipoMañana, '00:00');
-      this.origenDestinoService.setFecha(mañana);
-    }
+    // Mostrar horarios del día siguiente, si no hay horarios para el día actual, no funciona correctamente
+    // if(hoy && this.origenDestinoService.getLineasDirectas().length === 0 && this.origenDestinoService.getCombinaciones().length === 0){
+    //   this.origenDestinoService.buscar(tipoMañana, '00:00');
+    //   this.origenDestinoService.setFecha(mañana);
+    // }
     if(this.origenDestinoService.getParadaOrigen != undefined && this.origenDestinoService.getParadaDestino != undefined){
       this.setBusqueda(true);
     }

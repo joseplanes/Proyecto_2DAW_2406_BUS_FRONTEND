@@ -13,14 +13,9 @@ import { RouterLink } from '@angular/router';
 })
 export class ParadasComponent {
   constructor(private servicioComunicacion: ComunicacionService, private servicioLineaDetalle: LineaDetalleService) {
-    console.log(this.paradas);
    }
   @Input() paradas: any;
   @Input() recorrido: any;
-
-  verHorarios() {
-    
-  }
   ocultarHorarios() {
     this.servicioComunicacion.ocultarHorarios();
   }
