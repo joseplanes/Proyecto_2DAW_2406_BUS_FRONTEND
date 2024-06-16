@@ -4,10 +4,10 @@
     <h3>Afecta a las líneas: 
         @for (linea of incidencia.lineas; track linea.id) {
             @if($index + 1 < getLineasLength()){
-                {{linea.nombre}},
+                <a [routerLink]="['/detalle-linea', linea.id]" href="">{{linea.nombre}}</a>,
             }
             @else {
-                {{linea.nombre}}
+                <a [routerLink]="['/detalle-linea', linea.id]" href="">{{linea.nombre}}</a>
             }
         }
     </h3>

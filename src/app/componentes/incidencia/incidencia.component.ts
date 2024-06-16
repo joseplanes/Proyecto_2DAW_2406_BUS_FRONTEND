@@ -1,9 +1,10 @@
 import { Component, Input } from '@angular/core';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-incidencia',
   standalone: true,
-  imports: [],
+  imports: [RouterModule],
   templateUrl: './incidencia.component.html',
   styleUrl: './incidencia.component.css'
 })
