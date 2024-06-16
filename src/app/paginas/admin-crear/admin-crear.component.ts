@@ -16,7 +16,7 @@ export class AdminCrearComponent {
   popup:boolean = false;
   nombre: string = '';
   empresa: string = '1';
-  tipo:string = 'Urbana'
+  tipo:string = 'Urbana';
   descripcion: string = '';
   errorNombre:string = '';
   errorDescripcion:string = '';
@@ -61,7 +61,7 @@ export class AdminCrearComponent {
     if(this.nombre === ''){
       this.errorNombre = 'El campo nombre es obligatorio.';
     }else if(!this.regexNombre.test(this.nombre)){
-      this.errorNombre = 'El campo nombre solo puede contener letras mayúsculas y números.';
+      this.errorNombre = 'El nombre solo puede contener una letra mayúscula seguida de uno o dos números.';
     }
     if(this.descripcion === ''){
       this.errorDescripcion = 'El campo descripción es obligatorio.';

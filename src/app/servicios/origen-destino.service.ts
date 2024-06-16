@@ -105,7 +105,6 @@ export class OrigenDestinoService {
       )
       .subscribe((json: any) => {
         this.resultados = json[0];
-        console.log(this.resultados);
         this.tipo = tipo;
         this.hora = hora;
         

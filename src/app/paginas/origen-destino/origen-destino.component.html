@@ -8,7 +8,7 @@
                 }
             </h2>
             @if (getLineasDirectas().length && getParadaOrigen() != undefined && getParadaDestino() != undefined) {
-                @for (linea of getLineasDirectas(); track linea.idLinea) {
+                @for (linea of getLineasDirectas(); track $index) {
                     <app-linea-directa [linea]="linea"/>
                 }
             }
