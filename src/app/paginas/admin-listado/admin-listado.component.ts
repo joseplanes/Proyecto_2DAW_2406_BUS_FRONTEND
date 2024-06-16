@@ -41,6 +41,9 @@ export class AdminListadoComponent {
   actualizarLineas(){
     this.adminService.setLineas().subscribe((data) => {
       this.lineas = data[0];
+    }, error =>{
+      this.lineas = [];
+    
     });
   }
   borrarFiltros(){

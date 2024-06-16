@@ -31,7 +31,10 @@ export class AdminListadoBorradasComponent {
 actualizarLineas(){
     this.adminService.setLineasEliminadas().subscribe((data) => {
       this.lineasBorradas = data[0];
-    });
+      console.log(this.lineasBorradas);
+    }, error => {
+      this.lineasBorradas = [];
+  });
 }
   borrarFiltros(){
     this.nombre = '';
